@@ -6,6 +6,8 @@ This is for those like me who are too lazy to read documentation :D
 If you have problems, send an e-mail to support@thinkboxsoftware.com
 or go over to the forums. Lots of helpful folks over there.
 
+The notes are helpful. Read them. Especially if you want to use CPython.
+
 - Edwin
 
 
@@ -22,7 +24,9 @@ you find in the files themselves. I have no idea what Slave will do if it
 loads two plugins with the same name, so make sure that doens't happen. It
 could rip a hole in space time or something.
 
-This event plugin is run through the IronPython engine. For boring old CPython,
-you'll need to make some changes. Once I know what those changes are, and
-remember to look at this file again, I'll let you know. If you know, feel free
-to edit this.
+This event plugin is run through the IronPython engine. For CPython, you'll
+need to make some changes. Just add the text "#Python.NET" (without quotes)
+as the first line of text in the file.
+
+Then you'll be able to use the CPython version bundled along with Deadline
+in its install directory.
