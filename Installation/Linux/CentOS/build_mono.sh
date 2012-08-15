@@ -6,8 +6,10 @@
 
 
 # Pre-flight stuff
-yum install automake libtool autoconf gcc-c++ bison gettext make # Mono deps
-yum install glib2-devel libpng-devel libX11-devel fontconfig-devel freetype-devel #libgdiplus deps
+yum install make bzip2 wget # General dependancies that should already exist
+yum install automake libtool autoconf gcc-c++ bison gettext # Mono deps
+yum install glib2-devel libpng-devel libjpeg-devel libX11-devel fontconfig-devel freetype-devel #libgdiplus deps
+yum install giflib giflib-devel libtiff libtiff-devel # Some extra image formats to be safe
 
 # Download and extract mono
 curl -L http://ftp.novell.com/pub/mono/sources/mono/mono-2.10.2.tar.bz2 | tar jx
