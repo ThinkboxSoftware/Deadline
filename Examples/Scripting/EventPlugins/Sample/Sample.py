@@ -11,7 +11,6 @@
 ###############################################################
 from System.Diagnostics import *
 from System.IO import *
-from System import TimeSpan
 
 from Deadline.Events import *
 from Deadline.Scripting import *
