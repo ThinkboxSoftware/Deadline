@@ -12,7 +12,7 @@ yum install glib2-devel libpng-devel libjpeg-devel libX11-devel fontconfig-devel
 yum install giflib giflib-devel libtiff libtiff-devel # Some extra image formats to be safe
 
 # Download and extract mono
-curl -L http://ftp.novell.com/pub/mono/sources/mono/mono-2.10.2.tar.bz2 | tar jx
+curl -L http://origin-download.mono-project.com/sources/mono/mono-2.10.2.tar.bz2 | tar jx
 cd mono*
 
 # Build it
@@ -23,7 +23,7 @@ make install
 cd ..
 
 # Download and extract libgdi plus
-curl -L http://ftp.novell.com/pub/mono/sources/libgdiplus/libgdiplus-2.10.tar.bz2 | tar jx
+curl -L http://origin-download.mono-project.com/sources/libgdiplus/libgdiplus-2.10.tar.bz2 | tar jx
 cd libgdi*
 
 # Build that too
