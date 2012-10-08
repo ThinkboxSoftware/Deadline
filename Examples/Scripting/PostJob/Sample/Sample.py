@@ -2,7 +2,7 @@
 ###############################################################
 # This is an Python.net/CPython script.                       #
 # To use IronPython, remove  "#Python.NET" from the first     #
-# line of this file. Make sure you don't use the quotes.      #
+# line of this file.                                          #
 ###############################################################
 
 ###############################################################
