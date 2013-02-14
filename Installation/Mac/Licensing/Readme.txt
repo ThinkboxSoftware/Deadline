@@ -1,13 +1,15 @@
 This is a handy plist for the Darwin/OS X Launch Daemon. It should start lmgrd
 for you on reboot and keep it alive if it dies.
 
+
+
 Install:
 =====================
 Installation is straightforward, but there are a few steps.
 
 First, make a user and group named 'deadline'. If you have one for rendering
 already, feel free to use it, but you'll need to edit the plist to reflect
-those permissions.
+those differences.
 
 Next, create a folder for the licensing binaries. We expect it to be
 "/usr/local/Thinkbox/lmgrd". Create folders as necessary with 
@@ -27,6 +29,15 @@ And that should be it for installing! If something went awry running it, lmgrd
 should have helpful output in "/usr/local/Thinkbox/lmgrd/Thinkbox.log". Keep
 reading for important infos.
 
+Summary as a script: (one day we'll include it with the license download)
+mkdir -p /usr/local/Thinkbox/lmgrd
+cd /usr/local/Thinkbox/lmgrd/
+cp $license_bin_dir .
+chown -R deadline:deadline .
+cp com.thinkbox.license.plist /Library/LaunchDaemons/com.thinkbox.license.plist
+launchctl load -w /Library/LaunchDaemons/com.thinkbox.license.plist
+
+
 
 Assumptions:
 =====================
@@ -41,6 +52,7 @@ Now, if anything there isn't true, feel free to edit the plist to reflect
 reality. Support is going to assume the above are true though.
 
 
+
 Usage:
 =====================
 Unloading the license service (stop it from running):
@@ -48,6 +60,7 @@ launchctl unload Library/LaunchAgents/com.thinkbox.license.plist
 
 Re-load it:
 launchctl load Library/LaunchAgents/com.thinkbox.license.plist
+
 
 
 Help:
