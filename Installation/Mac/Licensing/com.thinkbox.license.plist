@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+		<string>com.thinkbox.lmgrd</string>
+	<key>ProgramArguments</key>
+		<array>
+			<string>/usr/local/Thinkbox/lmgrd</string>
+			<string>-zc</string>
+			<string>/usr/local/Thinkbox/Thinkbox_license.lic</string>
+			<string>-l</string>
+			<string>/usr/local/Thinkbox/lmgrd/Thinkbox.log</string>
+		</array>
+	<key>RunAtLoad</key>
+		<true/>
+	<key>UserName</key>
+		<string>deadline</string>
+	<key>GroupName</key>
+		<string>deadline</string>
+	<key>StandardOutPath</key>
+		<string>/dev/null</string>
+	<key>StandardErrorPath</key>
+		<string>/dev/null</string>
+	<key>KeepAlive</key>
+		<true/>
+</dict>
+</plist>
