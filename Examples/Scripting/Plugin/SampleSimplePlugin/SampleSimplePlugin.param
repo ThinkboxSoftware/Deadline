@@ -1,0 +1,29 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+Index=0
+Label=Enabled
+Default=false
+Description=If we want this plugin to do something, you'd better set this to 'true'
+
+[SampleProperty]
+Type=string
+Category=Options
+CategoryOrder=0
+Index=1
+Label=Sample Property
+Default=Awesomeness
+Description=Mostly just to show an example property
+
+[FakeProp1]
+Type=integer
+Minimum=0
+Maximum=100
+Increment=1
+Category=Misc
+CategoryOrder=0
+Index=2
+Label=Greatness level
+Default=0
+Description=Shows yous how to make an integer range
