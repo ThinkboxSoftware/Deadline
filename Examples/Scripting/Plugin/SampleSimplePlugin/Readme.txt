@@ -10,9 +10,9 @@ info, and figure out which render executable to use. Look in other plugins
 for great examples. I stole most of this from the TileAssembler!
 
 To start hacking on this, copy the whole thing into the Repository's "plugins"
-folder. Be sure to rename everyting to match. Basically, do a find/replace for
-files and folders and contents named "SampleSimplePlugin" to what you want it
-to be called.
+folder, then rename files/folders. Basically, do a find/replace for the files
+and folders and contents named "SampleSimplePlugin" to what you want it to be
+called. Be sure to rename everyting to match.
 
 The really tricky part for this is submitting a job so that this plugin is
 called! I don't have an example of that yet, but you'll need to look into how
