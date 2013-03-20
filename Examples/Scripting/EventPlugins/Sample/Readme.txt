@@ -15,7 +15,8 @@ Notes:
 =====================================
 You'll notice everything has the same name. The main folder, and the files
 inside it, etc. That's required. One day we might change that, but for now,
-that's how she be. It'd certainly be easier to create these things...
+that's how she be. It'd certainly be easier to create these things if we
+supported some generic name for them all. Like, plugin.py :D
 
 Copy the 'Sample' folder with contents to the 'events' folder in the root of
 the repository and start coding, then replace every instance of the word
