@@ -55,13 +55,18 @@ reality. Our support staff are going to assume the above is true though.
 Usage:
 =====================
 Unloading the license service (stop it from running):
-`launchctl unload Library/LaunchAgents/com.thinkbox.license.plist`
+`launchctl unload -w /Library/LaunchDaemons/com.thinkbox.license.plist`
 
 Re-load it:
-`launchctl load Library/LaunchAgents/com.thinkbox.license.plist`
+`launchctl load -w /Library/LaunchDaemons/com.thinkbox.license.plist`
 
 
 
 Help:
 =====================
+The Launch daemon writes errors to /var/log/system.log with a prefix of
+"com.apple.launchd[1]". Usually, if you it's not working, make sure that
+the user and group 'deadline' exist, or you edit and reload the plist to have
+a custom combo, like 'edwin.amsler' and 'wheel' like I did during testing :)
+
 If you hit any snags using this, as usual, e-mail support@thinkboxsoftware.com
