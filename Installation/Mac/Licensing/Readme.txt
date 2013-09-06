@@ -69,4 +69,19 @@ The Launch daemon writes errors to /var/log/system.log with a prefix of
 the user and group 'deadline' exist, or you edit and reload the plist to have
 a custom combo, like 'edwin.amsler' and 'wheel' like I did during testing :)
 
+Alternative Approach:
+I (MO) installed the license server files to: /Applications/Thinkbox/LicenseServer/
+
+Files:
+
+Thinkbox.log
+Thinkbox_license.lic
+frantic
+lmgrd
+lmutil
+thinkbox
+
+Setting all permissions to: chown -R root:admin as this user/group account exists by default on OSX. Then edited the plist UserName/GroupName to "daemon" as we are daemonising the lmgrd application. Upon boot-up, this will work for any user account that logs in as it's running as the default daemon user/group, which [launchd] running as root likes :-) 
+
+
 If you hit any snags using this, as usual, e-mail support@thinkboxsoftware.com
