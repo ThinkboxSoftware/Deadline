@@ -14,9 +14,9 @@
 	<key>RunAtLoad</key>
 		<true/>
 	<key>UserName</key>
-		<string>deadline</string>
+		<string>daemon</string>
 	<key>GroupName</key>
-		<string>deadline</string>
+		<string>nogroup</string>
 	<key>StandardOutPath</key>
 		<string>/usr/local/Thinkbox/lmgrd/Thinkbox_license.lic</string>
 	<key>StandardErrorPath</key>
