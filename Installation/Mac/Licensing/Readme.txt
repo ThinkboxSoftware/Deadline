@@ -10,15 +10,19 @@ Install:
 Installation is straightforward, but there are a few steps.
 
 Create a folder for the licensing binaries. We expect it to be
-"/usr/local/Thinkbox/lmgrd". Create folders as necessary with 
-`mkdir -p /usr/local/Thinkbox/lmgrd` in a Terminal window or manually from the
+"/usr/local/Thinkbox/flexnet". Create folders as necessary with 
+`mkdir -p /usr/local/Thinkbox/flexnet` in a Terminal window or manually from the
 finder.
 
 Now that that's done, copy all of the licensing binaries from either the
 download section of the website, or from the Deadline Repository if you have
-one. You'll need to put them into the local folder "/usr/local/Thinkbox/lmgrd",
-and set the permissions so that the 'daemon' user can access it. It's likely
-good by default.
+one. You'll need to put them into the local folder
+"/usr/local/Thinkbox/flexnet", and set the permissions so that the 'daemon'
+user can access it. It's likely good by default.
+
+You'll also need to copy your license file into the 'flexnet' folder and rename
+it to 'Thinkbox_license.lic'. You can always edit the plist for this if you
+want to change the name or location of the license file.
 
 Now, copy the "com.thinkbox.license.plist" file into "/Library/LaunchDaemons"
 and install it with the following command, again in a Terminal window:
@@ -26,11 +30,11 @@ and install it with the following command, again in a Terminal window:
 
 And that should be it for installing! If something goes wrong running it,
 launchd should have written helpful output in 
-"/usr/local/Thinkbox/lmgrd/Thinkbox.log". Keep reading for important infos.
+"/usr/local/Thinkbox/flexnet/Thinkbox.log". Keep reading for important infos.
 
 Summary of steps as a script:
-mkdir -p /usr/local/Thinkbox/lmgrd
-cd /usr/local/Thinkbox/lmgrd/
+mkdir -p /usr/local/Thinkbox/flexnet
+cd /usr/local/Thinkbox/flexnet/
 cp $license_bin_dir/* .
 chown -R nobody:nogroup . # Make sure you're in the right directory!
 chmod -R 755 *            # Ditto for this one

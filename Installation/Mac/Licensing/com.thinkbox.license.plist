@@ -6,10 +6,10 @@
 		<string>com.thinkbox.lmgrd</string>
 	<key>ProgramArguments</key>
 		<array>
-			<string>/usr/local/Thinkbox/lmgrd/lmgrd</string>
+			<string>/usr/local/Thinkbox/flexnet/lmgrd</string>
 			<string>-z</string>
 			<string>-c</string>
-			<string>/usr/local/Thinkbox/lmgrd/Thinkbox_license.lic</string>
+			<string>/usr/local/Thinkbox/flexnet/Thinkbox_license.lic</string>
 		</array>
 	<key>RunAtLoad</key>
 		<true/>
@@ -18,9 +18,9 @@
 	<key>GroupName</key>
 		<string>nogroup</string>
 	<key>StandardOutPath</key>
-		<string>/usr/local/Thinkbox/lmgrd/Thinkbox_license.lic</string>
+		<string>/usr/local/Thinkbox/flexnet/Thinkbox_license.log</string>
 	<key>StandardErrorPath</key>
-		<string>/usr/local/Thinkbox/lmgrd/Thinkbox_license.lic</string>
+		<string>/usr/local/Thinkbox/flexnet/Thinkbox_license.log</string>
 	<key>KeepAlive</key>
 		<true/>
 </dict>
