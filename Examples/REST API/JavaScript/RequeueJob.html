@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>Deadline REST API example</title>
+		<script>
+            alert("Techincally this won't work until 7.0!\nCORS issues and all that");
+        
+            var server = "http://192.168.2.165:8082";
+        
+            var data = {
+                Command: 'requeue',
+                JobID: '5411f41348d470b604d94dd0'
+            };
+        
+			var xhr = new XMLHttpRequest();
+			xhr.open("PUT", server + "/api/jobs", true);
+			xhr.onload = function (e) {
+				if (xhr.readyState === 4) {
+					if (xhr.status === 200) {
+						console.log(xhr.responseText);
+					} else {
+						console.error(xhr.statusText);
+                        console.error(xhr.responseText);
+					}
+				}
+			};
+			xhr.onerror = function (e) {
+                console.error("Blarg! Died!");
+				console.error(xhr.statusText);
+                console.error(xhr.responseText);
+			};
+            
+            data = JSON.stringify(data);
+			xhr.send(data);
+
+		</script>
+	</head>
+	<body>
+		<pre>
+		</pre>
+	</body>
+</html>
