@@ -1,7 +1,7 @@
 DeadlineV5Migration.py - Easily Migrate Deadline v5 -> v6 (only)
 =======================================================================
 
-![Screenshot of the script](/ThinkboxSoftware/Deadline/tree/master/Installation/Migration/Screenshot.png?raw=true)
+![Screenshot of the script](Screenshot.png?raw=true =640x)
 
 DISCLAIMER: This script has the ability to wipe all your Deadline v6 settings for slaves, limits, pools, groups, users. It doesn't migrate any of the main repo options, as these can easily be modified once in the "Configure Repository Options". So much has changed between versions 5 and 6 that it would be inappropriate to try and automatically migrate these settings. It is recommended that this script has its security permissions limited to only experienced Deadline / IT staff.
 
