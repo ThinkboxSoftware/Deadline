@@ -1,4 +1,5 @@
 DeadlineV5Migration.py - Easily Migrate Deadline v5 -> v6 (only)
+=======================================================================
 
 ![Screenshot of the script](/ThinkboxSoftware/Deadline/tree/master/Installation/Migration/Screenshot.png?raw=true)
 
