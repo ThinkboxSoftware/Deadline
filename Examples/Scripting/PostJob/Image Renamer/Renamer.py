@@ -1,6 +1,3 @@
-#Python.NET
-# ^ Instructs Deadline to use CPython instead of IronPython
-
 # My usual warning holds true:
 #	This script is for learning purposes. It might work, it might delete everything in your farm.
 #   Please be cautious since I likely haven't had time to test this.

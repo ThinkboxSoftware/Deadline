@@ -1,13 +1,3 @@
-###############################################################
-# This is an IronPython script. You'll need to convert it to  #
-# a CPython script to make use of the 'os' package and others #
-#                                                             #
-# To use CPython, add "#Python.NET" as the first line of this #
-# file. Make sure you don't use the quotes.                   #
-#                                                             #
-# I should also mention that this is a "simple plugin"        #
-# which isn't as powerful as the complex plugin route         #
-###############################################################
 from System import *
 from System.Diagnostics import *
 from System.IO import *
@@ -40,8 +30,8 @@ class SampleSimplePlugin(DeadlinePlugin):
     
     def Cleanup(self):
         """
-            With Python.net we need to clean up after ourselves or risk leaking
-            memory in the interpreter. Any callbacks assigned *MUST* be removed
+            We need to clean up after ourselves or risk leaking memory in the
+            interpreter. Any callbacks assigned *MUST* be removed
         """
         
         for stdoutHandler in self.StdoutHandlers:
@@ -55,16 +45,16 @@ class SampleSimplePlugin(DeadlinePlugin):
     
     def InitializeProcess( self ):
         """
-            Here we initialize the plugin more deeply. I think this needs
-            to be here instead of the init function since the plugin should
-            be fully loaded at this point
+            Here we initialize the plugin more deeply. Setting listening hooks
+            needs to be here instead of the init function since the plugin
+            needs to be fully loaded.
         """
         
         self.SingleFramesOnly = True # Does this plugin support ranges?
         self.PluginType = PluginType.Simple # We aren't to managing a process
         
-        self.UseProcessTree = True # End the process we spawn if the slave exits
-        self.StdoutHandling = True # Actually watch the output.
+        self.UseProcessTree = True # End the spawned process if the slave exits
+        self.StdoutHandling = True # Actually watch the output. See below
         
         self.AddStdoutHandlerCallback("ERROR:.*").HandleCallback += self.HandleError
         self.AddStdoutHandlerCallback("Fake progress ([0-9]*) of ([0-9]*)").HandleCallback += self.HandleProgress
@@ -118,7 +108,7 @@ class SampleSimplePlugin(DeadlinePlugin):
         option  = self.GetPluginInfoEntryWithDefault("option", "")
         
         # Lots more handy functions here:
-        # http://www.thinkboxsoftware.com/deadline-5-scriptpluginsdk/
+        # http://www.thinkboxsoftware.com/deadline-6-scriptpluginsdk/
         
         return "/c echo Sauce please!"
     
@@ -130,24 +120,28 @@ class SampleSimplePlugin(DeadlinePlugin):
         
         self.LogInfo("Sauce related problems occured!")
         
-        # All of the calls from AddStdoutHandler() will populate the
-        # regex matches for the call it invokes. So, if you want to grab a
-        # specific tile, frame, error condition from the output line that
-        # matched, use brackets for capture groups. It'll always be returned
-        # as text, so cast/convert accordingly!
+        # All of the calls from AddStdoutHandler() will populate regex matches
+        # in a local variable for the call it invokes. So, if you want to grab
+        # a specific tile, frame, error condition from the output line that
+        # matched, use brackets for capture groups.
+        #
+        # This stuff'll always be returned as text, so cast/convert accordingly!
+        #
         # Also, FailRender() does exactly what you expect. It throws a special
-        # exception that blows up the RenderTask function.
+        # exception that blows up the RenderTask function and classifies this
+        # run as an error for logging purposes.
         FailRender( self.GetRegexMatch(0) )
     
     def HandleProgress( self ):
         """
             This is one is user-specified too. It can be named anything, though
-            it's our practice to name it this.
+            it's our practice to name progressy things this.
         """
         
         # Specifying a float out of 100 will let the Slave update the per-task
-        # progress. That value doesn't count directly to the job progress yet,
-        # but it's handy to see where people's tasks are at.
+        # progress. This value doesn't count directly to the job progress yet,
+        # but it's handy to see where tasks are at. Job progress is the number
+        # of tasks that have been completed.
         SetProgress(59.6)
 
         # See the "HandleError" function for how to pull progress-like things

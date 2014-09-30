@@ -1,12 +1,4 @@
 ###############################################################
-# This is an IronPython script. You'll need to convert it to  #
-# a CPython script to make use of the 'os' package and others #
-#                                                             #
-# To use CPython, add "#Python.NET" as the first line of this #
-# file. Make sure you don't use the quotes.                   #
-###############################################################
-
-###############################################################
 ## Imports
 ###############################################################
 from System.Diagnostics import *
