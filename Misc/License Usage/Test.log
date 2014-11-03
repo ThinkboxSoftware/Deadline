@@ -1,0 +1,6 @@
+Here's our test loggy
+
+ 9:00:00 (thinkbox) OUT: "deadline" edwin@testbox  
+17:00:00 (thinkbox) IN: "deadline" edwin@testbox
+ 1:00:00 (thinkbox) OUT: "deadline" edwin@testbox  
+ 2:00:00 (thinkbox) IN: "deadline" edwin@testbox
