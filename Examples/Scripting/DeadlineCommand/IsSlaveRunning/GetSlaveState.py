@@ -5,6 +5,8 @@
     please report them to support@thinkboxsoftware.com
 '''
 
+# This package is available only to scripts running within Deadline.
+# It's magically handled by Python.net.
 from Deadline.Scripting import *
 
 stateMapping = {
