@@ -26,17 +26,11 @@ def __main__():
 
     MIN_COMPLETED_TASKS = 0 #Min - Number of Completed Tasks BEFORE the job is queried. Change as applicable
 
-    # Grab all jobs
-    alljobs = RepositoryUtils.GetJobs( True )
-
-    # Filter down to only "Active" jobs
-    jobs=[]
-    for job in alljobs:
-        if job.JobStatus == "Active":
-            jobs.append( job )
-
-    for job in jobs:
-
+    for job in RepositoryUtils.GetJobs( True ):
+        # Filter out non-"Active" jobs
+        if job.JobStatus != "Active":
+            continue
+    
         print "JobStatus: %s" % job.JobStatus
 
         jobId = job.JobId
