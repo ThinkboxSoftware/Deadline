@@ -25,14 +25,3 @@ Index=1
 Default=Casual
 Label=Groups
 Description= Users Group
-
-
-[Logging]
-Type=enum
-Values=all;garbage;trace;debug;info;warning;error;critical;quiet;
-Category=Options
-CategoryOrder=0
-Index=2
-Default=info
-Label=Verbose Logging Level
-Description=The level of verbose logging Salt will provide.
