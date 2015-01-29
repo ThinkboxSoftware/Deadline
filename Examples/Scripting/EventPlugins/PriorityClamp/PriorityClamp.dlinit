@@ -1,0 +1,5 @@
+﻿Enabled=True
+SaltExe=C:\salt\salt-call.exe
+Logging=info
+UserGroups=Admin
+Priority=50
