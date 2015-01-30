@@ -1,4 +1,3 @@
-
 ###############################################################
 ## Imports
 ###############################################################
@@ -12,7 +11,7 @@ from Deadline.Scripting import *
 import re, sys, os
 
 ###############################################################
-## This is the function called by Deadline to get an instance of the Salt event listener.
+## This is the function called by Deadline to get an instance of the job event listener.
 ###############################################################
 def GetDeadlineEventListener():
     return JobEventListener()
@@ -21,7 +20,7 @@ def CleanupDeadlineEventListener( eventListener ):
     eventListener.Cleanup()
 
 ###############################################################
-## priority event listener class.
+## Priority clamp event listener class.
 ###############################################################
 class JobEventListener (DeadlineEventListener):
     def __init__( self ):
@@ -30,8 +29,7 @@ class JobEventListener (DeadlineEventListener):
     def Cleanup( self ):
         del self.OnJobSubmittedCallback
 
-
-    ## This is called when a job is submitted
+    ## This is called when a job is submitted.
     def OnJobSubmitted(self, job):
         user = job.JobUserName
         priviledged = False
