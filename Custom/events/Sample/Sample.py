@@ -13,47 +13,47 @@ from Deadline.Scripting import *
 ## this from our Draft code.
 ###############################################################
 def GetDeadlineEventListener():
-	return SampleListener()
+    return SampleListener()
 
 ###############################################################
 ## The Draft event listener class.
 ###############################################################
 class SampleListener (DeadlineEventListener):
-	def OnJobFinished(self, job):
-		goods = GetConfigEntryWithDefault( "SampleProperty", "123" )
-		bads  = GetConfigEntryWithDefault( "FakeProp1", "also a string" )
-		uglys = job.Name
-		pass
-		
-	def OnJobArchived(self, job):
-		pass
-		
-	def OnJobFailed(self, job):
-		pass
-		
-	def OnJobFinished(self, job):
-		pass
-		
-	def OnJobPended(self, job):
-		pass
-		
-	def OnJobReleased(self, job):
-		pass
-		
-	def OnJobRequeued(self, job):
-		pass
-		
-	def OnJobResumed(self, job):
-		pass
-		
-	def OnJobStarted(self, job):
-		pass
-		
-	def OnJobSubmitted(self, job):
-		pass
-		
-	def OnJobSuspended(self, job):
-		pass
-		
-	def OnJobUnarchived(self, job):
-		pass
+    def OnJobFinished(self, job):
+        goods = GetConfigEntryWithDefault( "SampleProperty", "123" )
+        bads  = GetConfigEntryWithDefault( "FakeProp1", "also a string" )
+        uglys = job.Name
+        pass
+        
+    def OnJobArchived(self, job):
+        pass
+        
+    def OnJobFailed(self, job):
+        pass
+        
+    def OnJobFinished(self, job):
+        pass
+        
+    def OnJobPended(self, job):
+        pass
+        
+    def OnJobReleased(self, job):
+        pass
+        
+    def OnJobRequeued(self, job):
+        pass
+        
+    def OnJobResumed(self, job):
+        pass
+        
+    def OnJobStarted(self, job):
+        pass
+        
+    def OnJobSubmitted(self, job):
+        pass
+        
+    def OnJobSuspended(self, job):
+        pass
+        
+    def OnJobUnarchived(self, job):
+        pass
