@@ -3,7 +3,7 @@ from Deadline.Jobs import *
 
 def __main__():
 
-    print "Script Started..."
+    print("Script Started...")
 
     for job in RepositoryUtils.GetJobs( True ):
         # Filter completed jobs
@@ -17,6 +17,6 @@ def __main__():
         stats = JobUtils.CalculateJobStatistics( job, tasks )
 
         jobPeakRamUsage = stats.PeakRamUsage/1024/1024
-        print "JobPeakRamUsage: %sMb" % jobPeakRamUsage
+        print("JobPeakRamUsage: %sMb" % jobPeakRamUsage)
 
-    print "...Script Completed"
+    print("...Script Completed")
