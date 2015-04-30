@@ -1,0 +1,8 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+Index=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.

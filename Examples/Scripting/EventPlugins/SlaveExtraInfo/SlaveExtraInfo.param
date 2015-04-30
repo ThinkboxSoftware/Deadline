@@ -1,0 +1,98 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[ExtraInfo0]
+Type=string
+Category=Extra Info Options
+CategoryOrder=1
+CategoryIndex=0
+Label=Extra Info 0
+Default=
+Description=Environment Variable if present under the current process when slave starts to be inserted into Extra Info 0 column in monitor
+
+[ExtraInfo1]
+Type=string
+Category=Extra Info Options
+CategoryOrder=1
+CategoryIndex=1
+Label=Extra Info 1
+Default=
+Description=Environment Variable if present under the current process when slave starts to be inserted into Extra Info 1 column in monitor
+
+[ExtraInfo2]
+Type=string
+Category=Extra Info Options
+CategoryOrder=1
+CategoryIndex=2
+Label=Extra Info 2
+Default=
+Description=Environment Variable if present under the current process when slave starts to be inserted into Extra Info 2 column in monitor
+
+[ExtraInfo3]
+Type=string
+Category=Extra Info Options
+CategoryOrder=1
+CategoryIndex=3
+Label=Extra Info 3
+Default=
+Description=Environment Variable if present under the current process when slave starts to be inserted into Extra Info 3 column in monitor
+
+[ExtraInfo4]
+Type=string
+Category=Extra Info Options
+CategoryOrder=1
+CategoryIndex=4
+Label=Extra Info 4
+Default=
+Description=Environment Variable if present under the current process when slave starts to be inserted into Extra Info 4 column in monitor
+
+[ExtraInfo5]
+Type=string
+Category=Extra Info Options
+CategoryOrder=1
+CategoryIndex=5
+Label=Extra Info 5
+Default=
+Description=Environment Variable if present under the current process when slave starts to be inserted into Extra Info 5 column in monitor
+
+[ExtraInfo6]
+Type=string
+Category=Extra Info Options
+CategoryOrder=1
+CategoryIndex=6
+Label=Extra Info 6
+Default=
+Description=Environment Variable if present under the current process when slave starts to be inserted into Extra Info 6 column in monitor
+
+[ExtraInfo7]
+Type=string
+Category=Extra Info Options
+CategoryOrder=1
+CategoryIndex=7
+Label=Extra Info 7
+Default=
+Description=Environment Variable if present under the current process when slave starts to be inserted into Extra Info 7 column in monitor
+
+[ExtraInfo8]
+Type=string
+Category=Extra Info Options
+CategoryOrder=1
+CategoryIndex=8
+Label=Extra Info 8
+Default=
+Description=Environment Variable if present under the current process when slave starts to be inserted into Extra Info 8 column in monitor
+
+[ExtraInfo9]
+Type=string
+Category=Extra Info Options
+CategoryOrder=1
+CategoryIndex=9
+Label=Extra Info 9
+Default=
+Description=Environment Variable if present under the current process when slave starts to be inserted into Extra Info 9 column in monitor

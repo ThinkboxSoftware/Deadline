@@ -1,0 +1,7 @@
+﻿Enabled=False
+nukeJobCleanupDays=-1
+nukeOverrideJobCleanupType=Disabled
+maxJobCleanupDays=-1
+maxOverrideJobCleanupType=Disabled
+mayaJobCleanupDays=-1
+mayaOverrideJobCleanupType=Disabled

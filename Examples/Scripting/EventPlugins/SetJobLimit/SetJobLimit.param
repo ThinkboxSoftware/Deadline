@@ -1,0 +1,17 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[JobLimits]
+Type=string
+Category=Options
+CategoryOrder=0
+CategoryIndex=1
+Label=Limits
+Default=
+Description=A comma separated list of limits to set automatically when the job is submitted.

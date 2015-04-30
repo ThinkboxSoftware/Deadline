@@ -1,0 +1,71 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[nukeJobCleanupDays]
+Type=integer
+Minimum=-1
+Maximum=9999
+Category=Nuke Options
+CategoryOrder=1
+CategoryIndex=0
+Label=Cleanup Job After This Many Days
+Default=-1
+Description=This is the number of days to keep the Nuke job before cleaning it up. (Disabled = -1)
+
+[nukeOverrideJobCleanupType]
+Type=enum
+Items=Disabled;Archive;Delete
+Category=Nuke Options
+CategoryOrder=1
+CategoryIndex=1
+Label=Cleanup Mode
+Default=Disabled
+Description=This is the Nuke job cleanup mode. (Default = Disabled)
+
+[maxJobCleanupDays]
+Type=integer
+Minimum=-1
+Maximum=9999
+Category=3ds Max Options
+CategoryOrder=2
+CategoryIndex=0
+Label=Cleanup Job After This Many Days
+Default=-1
+Description=This is the number of days to keep the 3ds Max job before cleaning it up. (Disabled = -1)
+
+[maxOverrideJobCleanupType]
+Type=enum
+Items=Disabled;Archive;Delete
+Category=3ds Max Options
+CategoryOrder=2
+CategoryIndex=1
+Label=Cleanup Mode
+Default=Disabled
+Description=This is the 3ds Max job cleanup mode. (Default = Disabled)
+
+[mayaJobCleanupDays]
+Type=integer
+Minimum=-1
+Maximum=9999
+Category=Maya Options
+CategoryOrder=3
+CategoryIndex=0
+Label=Cleanup Job After This Many Days
+Default=-1
+Description=This is the number of days to keep the Maya job before cleaning it up. (Disabled = -1)
+
+[mayaOverrideJobCleanupType]
+Type=enum
+Items=Disabled;Archive;Delete
+Category=Maya Options
+CategoryOrder=3
+CategoryIndex=1
+Label=Cleanup Mode
+Default=Disabled
+Description=This is the Maya job cleanup mode. (Default = Disabled)
