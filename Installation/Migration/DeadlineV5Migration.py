@@ -205,7 +205,7 @@ def ExecuteMigration():
                 key,val = path.split("=")
                 pools.append(key)
             
-            print "pools: %s" % pools
+            print("pools: %s" % pools)
 
             poolAdded = 0
             poolDuplicate = 0
@@ -229,7 +229,7 @@ def ExecuteMigration():
                 key,val = path.split("=")
                 groups.append(key)
             
-            print "groups: %s" % groups
+            print("groups: %s" % groups)
 
             groupAdded = 0
             groupDuplicate = 0
