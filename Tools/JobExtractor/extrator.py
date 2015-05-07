@@ -1,3 +1,7 @@
+'''
+    Right now, this dumps everything into the current working directory.
+'''
+
 import zipfile
 import bz2
 import sys
@@ -5,13 +9,10 @@ import argparse
 import json
 import os
 
-'''
-    Right now, this dumps everything into the current working directory.
-'''
 
 JOB_FILENAME = 'job.json'
-LOG_FOLDER   = 'logs'
-LOG_SUFFIX   = 'bz2'
+LOG_FOLDER = 'logs'
+LOG_SUFFIX = 'bz2'
 
 parser = argparse.ArgumentParser(description='Extract and format job files')
 parser.add_argument('file', help='Job file to extract')
@@ -36,12 +37,12 @@ for name in file.namelist():
     print("Done")
 
 if os.path.exists(LOG_FOLDER):
-     raise Exception('Log folder exists. Considering working directory unsafe')
+    raise Exception('Log folder exists. Considering working directory unsafe')
 
 os.makedirs(LOG_FOLDER)
 
 for name in file.namelist():
-    if not LOG_SUFFIX in name:
+    if LOG_SUFFIX not in name:
         continue
 
     sys.stdout.write(' Extracting log {0}... '.format(name))

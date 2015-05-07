@@ -13,6 +13,7 @@ import sys
 import time
 from datetime import datetime, timedelta, MINYEAR
 
+
 class checkout_tracker():
     def __init__(self):
         self.duration = timedelta(0)
@@ -38,10 +39,10 @@ class checkout_tracker():
 
         
 def main():
-    time_total   = datetime.min
+    time_total = datetime.min
     time_current = datetime.min
-    time_last    = datetime.min
-    time_start   = datetime.min
+    time_last = datetime.min
+    time_start = datetime.min
     
     machines = {}
 
@@ -86,7 +87,6 @@ def main():
     print()
     print("These values may not be accurate (especially across time changes).")
     
-    
     file.close()
 
 def account_time(old, new):
@@ -99,12 +99,14 @@ def account_time(old, new):
         duration = new - old
         
     return duration
+
     
 def process_file(file):
     ''' Weed out unwanted lines and pass them on to tracking '''
     for line in file:
         if "OUT:" in line or "IN:" in line:
             yield line.strip()
+
 
 def process_element(machines, timestamp, vendor, state, feature, key):
     if feature != '"deadline"':

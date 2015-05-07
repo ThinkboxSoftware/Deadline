@@ -10,12 +10,12 @@ def CleanupDeadlineEventListener( eventListener ):
 
 
 class HouseCleaningEvent (DeadlineEventListener):
-    def __init__( self ):
+    def __init__(self):
         self.OnHouseCleaningCallback += self.OnHouseCleaning
     
-    def Cleanup( self ):
+    def Cleanup(self):
         del self.OnHouseCleaningCallback
 
-    #Utility function that creates a Deadline Job based on given parameters
-    def OnHouseCleaning( self ):
+    # Utility function that creates a Deadline Job based on given parameters
+    def OnHouseCleaning(self):
         print("Howdy!")
