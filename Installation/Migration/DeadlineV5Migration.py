@@ -202,7 +202,7 @@ def ExecuteMigration():
             pools = []
             paths = ReadINIFile(poolsFile)
             for path in paths:
-                key,val = path.split("=")
+                key, val = path.split("=")
                 pools.append(key)
             
             print("pools: %s" % pools)
@@ -226,7 +226,7 @@ def ExecuteMigration():
             groups = []
             paths = ReadINIFile(groupsFile)
             for path in paths:
-                key,val = path.split("=")
+                key, val = path.split("=")
                 groups.append(key)
             
             print("groups: %s" % groups)
@@ -244,7 +244,7 @@ def ExecuteMigration():
             scriptDialog.ShowMessageBox("Groups injected into DB: %d\nGroups failed to be injected into DB: %d" % (groupAdded, groupDuplicate), "Group Results")
 
         # SLAVES
-        migrateSlaves = scriptDialog.GetValue("SlavesBox") 
+        migrateSlaves = scriptDialog.GetValue("SlavesBox")
         if bool(migrateSlaves):
 
             ssFiles = Directory.GetFiles(slavesPath, "*.slaveSettings", SearchOption.AllDirectories)
