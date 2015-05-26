@@ -25,7 +25,7 @@ file = zipfile.ZipFile(filename, "r")
 print("Opening {0}...".format(filename))
 
 for name in file.namelist():
-    if not "json" in name:
+    if "json" not in name:
         continue
 
     sys.stdout.write(" Extracting {0}... ".format(name))

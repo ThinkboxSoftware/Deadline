@@ -11,15 +11,16 @@ from Deadline.Scripting import *
 
 stateMapping = {
     # This maps different states to what power management sees
-    "Idle":         "On",
-    "Rendering":    "On",
-    "Starting Job": "On",    
-    "Offline":      "Off",
-    "Stalled":      "Off",
+    "Idle": "On",
+    "Rendering": "On",
+    "Starting Job": "On",
+    "Offline": "Off",
+    "Stalled": "Off",
     # This state is due to a missing slaveInfo document and
     # shouldn't be acted upon
-    "Unknown":      "Unknown"
+    "Unknown": "Unknown"
 }
+
 
 def __main__():
     slaveInfos = RepositoryUtils.GetSlaveInfos(True)

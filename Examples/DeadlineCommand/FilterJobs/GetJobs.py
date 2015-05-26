@@ -10,7 +10,9 @@ from datetime import date, timedelta
 
 # C# goods. This is because the jobs dates will be .net objects
 from System import DateTime
+
 last24 = DateTime.Now.AddDays(-1)
+
 
 def __main__(*args):
     jobs = RepositoryUtils.GetJobs(True)
@@ -26,5 +28,3 @@ def __main__(*args):
             continue
     
         print('Job: {0} ({1})'.format(job.JobName, job.JobId))
-
-   

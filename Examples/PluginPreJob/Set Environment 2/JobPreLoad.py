@@ -11,22 +11,19 @@
     
     Written by Edwin Amsler <support@thinkboxsoftware.com>
 '''
-
-###############################################################
-## Imports
-###############################################################
-
 from System import *
 from System.IO import *
 
-MAP = [
-    ('JobPriority',         'DEADLINE_PRIORITY'),
-    ('JobId',               'DEADLINE_JOBID'),
-    ('JobInterruptible',    'DEADLINE_INTERRUPTABLE')
-    ]
 
-def __main__( deadlinePlugin ):
-    deadlinePlugin.LogInfo( "Setting environment" )
+MAP = [
+    ('JobPriority', 'DEADLINE_PRIORITY'),
+    ('JobId', 'DEADLINE_JOBID'),
+    ('JobInterruptible', 'DEADLINE_INTERRUPTABLE')
+]
+
+
+def __main__(deadlinePlugin):
+    deadlinePlugin.LogInfo("Setting environment")
 
     job = deadlinePlugin.GetJob()
 

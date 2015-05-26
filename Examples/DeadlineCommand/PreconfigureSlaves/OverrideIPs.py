@@ -17,6 +17,7 @@ machines = {
     "slaveName3": "192.168.0.3",
 }
 
+
 def __main__():
     for hostname, ip in machines.items():
         # This is extremely inefficent as it needs to do
@@ -33,6 +34,6 @@ def __main__():
         
         try:
             RepositoryUtils.SaveSlaveSettings(slave)
-            print("Slave '{0}' updated to address override from '{1}' to '{2}' successfully.".format(hostname, oldIp,ip))
+            print("Slave '{0}' updated to address override from '{1}' to '{2}' successfully.".format(hostname, oldIp, ip))
         except Exception as e:
             print("Slave '{0}' failed to update. {1}.".format(hostname, e.message.capitalize()))

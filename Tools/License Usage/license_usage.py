@@ -89,11 +89,12 @@ def main():
     
     file.close()
 
+    
 def account_time(old, new):
     ''' Do the math if the time rolled over '''
     if new < old:
         # Time rolled over
-        duration  = timedelta(days=1)
+        duration = timedelta(days=1)
         duration -= old - new
     else:
         duration = new - old

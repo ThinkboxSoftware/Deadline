@@ -6,15 +6,18 @@ from System import TimeSpan
 from Deadline.Events import *
 from Deadline.Scripting import *
 
+
 ###############################################################
 # Give Deadline an instance of this class so it can use it.
 ###############################################################
 def GetDeadlineEventListener():
     return StatsListener()
 
+
 def CleanupDeadlineEventListener(eventListener):
     eventListener.Cleanup()
-    
+
+
 ###############################################################
 # The Stats event listener class.
 ###############################################################

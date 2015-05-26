@@ -10,12 +10,8 @@
     
     Written by Edwin Amsler <support@thinkboxsoftware.com>
 '''
-
-###############################################################
-## Imports
-###############################################################
-
 from Deadline.Scripting import *
+
 
 environment = {
     "a": "b",
@@ -23,10 +19,10 @@ environment = {
     "1": "2"
 }
 
-###############################################################
-## Entry point and good times
-###############################################################
-def __main__( deadlinePlugin ):
+
+def __main__(deadlinePlugin):
+    ''' Entry point and good times '''
+
     ClientUtils.LogText("Adding enviornment variables to Maya job")
 
     for k, v in environment.items():

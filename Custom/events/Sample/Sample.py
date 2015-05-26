@@ -1,5 +1,5 @@
 ###############################################################
-## Imports
+#  Imports
 ###############################################################
 from System.Diagnostics import *
 from System.IO import *
@@ -7,21 +7,23 @@ from System.IO import *
 from Deadline.Events import *
 from Deadline.Scripting import *
 
+
 ###############################################################
-## Give Deadline an instance of this class so it can use it.
-## If you've dug around the repository, you'll notice I poached
-## this from our Draft code.
+#  Give Deadline an instance of this class so it can use it.
+#  If you've dug around the repository, you'll notice I poached
+#  this from our Draft code.
 ###############################################################
 def GetDeadlineEventListener():
     return SampleListener()
 
+
 ###############################################################
-## The Draft event listener class.
+#  The Draft event listener class.
 ###############################################################
 class SampleListener (DeadlineEventListener):
     def OnJobFinished(self, job):
-        goods = GetConfigEntryWithDefault( "SampleProperty", "123" )
-        bads  = GetConfigEntryWithDefault( "FakeProp1", "also a string" )
+        goods = GetConfigEntryWithDefault("SampleProperty", "123")
+        bads = GetConfigEntryWithDefault("FakeProp1", "also a string")
         uglys = job.Name
         pass
         

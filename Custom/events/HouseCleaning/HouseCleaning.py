@@ -5,7 +5,8 @@ from Deadline.Scripting import *
 def GetDeadlineEventListener():
     return HouseCleaningEvent()
 
-def CleanupDeadlineEventListener( eventListener ):
+
+def CleanupDeadlineEventListener(eventListener):
     eventListener.Cleanup()
 
 

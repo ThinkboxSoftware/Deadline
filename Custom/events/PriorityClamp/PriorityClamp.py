@@ -1,5 +1,5 @@
 ###############################################################
-## Imports
+#  Imports
 ###############################################################
 from System.Diagnostics import *
 from System.IO import *
@@ -8,28 +8,33 @@ from System import TimeSpan
 from Deadline.Events import *
 from Deadline.Scripting import *
 
-import re, sys, os
+import re
+import sys
+import os
+
 
 ###############################################################
-## This is the function called by Deadline to get an instance of the job event listener.
+#  This is the function called by Deadline to get an instance of the job event listener.
 ###############################################################
 def GetDeadlineEventListener():
     return JobEventListener()
 
-def CleanupDeadlineEventListener( eventListener ):
+
+def CleanupDeadlineEventListener(eventListener):
     eventListener.Cleanup()
 
+
 ###############################################################
-## Priority clamp event listener class.
+#  Priority clamp event listener class.
 ###############################################################
 class JobEventListener (DeadlineEventListener):
-    def __init__( self ):
+    def __init__(self):
         self.OnJobSubmittedCallback += self.OnJobSubmitted
 
-    def Cleanup( self ):
+    def Cleanup(self):
         del self.OnJobSubmittedCallback
 
-    ## This is called when a job is submitted.
+    # This is called when a job is submitted.
     def OnJobSubmitted(self, job):
         user = job.JobUserName
         priviledged = False
@@ -37,7 +42,7 @@ class JobEventListener (DeadlineEventListener):
         priority = self.GetIntegerConfigEntry("Priority")
         usergroup = self.GetConfigEntry("UserGroups")
 
-        groups = RepositoryUtils.GetUserGroupsForUser( user )
+        groups = RepositoryUtils.GetUserGroupsForUser(user)
 
         for group in groups:
             if group == usergroup:

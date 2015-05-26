@@ -20,13 +20,14 @@ from System import TimeSpan
 from Deadline.Scripting import *
 from Deadline.Jobs import *
 
+
 def __main__():
 
     print("Script Started...")
 
-    MIN_COMPLETED_TASKS = 0 #Min - Number of Completed Tasks BEFORE the job is queried. Change as applicable
+    MIN_COMPLETED_TASKS = 0  # Min - Number of Completed Tasks BEFORE the job is queried. Change as applicable
 
-    for job in RepositoryUtils.GetJobs( True ):
+    for job in RepositoryUtils.GetJobs(True):
         # Filter out non-"Active" jobs
         if job.JobStatus != "Active":
             continue
@@ -45,14 +46,14 @@ def __main__():
         jobCompletedChunks = job.CompletedChunks
         print("JobCompletedChunks: %s" % jobCompletedChunks)
 
-        job = RepositoryUtils.GetJob( jobId, True )
-        tasks = RepositoryUtils.GetJobTasks( job, True )
-        stats = JobUtils.CalculateJobStatistics( job, tasks )
+        job = RepositoryUtils.GetJob(jobId, True)
+        tasks = RepositoryUtils.GetJobTasks(job, True)
+        stats = JobUtils.CalculateJobStatistics(job, tasks)
         
         jobAverageFrameRenderTime = stats.AverageFrameRenderTime
-        jobPeakRamUsage = stats.PeakRamUsage/1024/1024
+        jobPeakRamUsage = stats.PeakRamUsage / 1024 / 1024
 
-        print("JobAverageFrameRenderTime: %s" %  jobAverageFrameRenderTime)
+        print("JobAverageFrameRenderTime: %s" % jobAverageFrameRenderTime)
         print("JobPeakRamUsage: %s" % jobPeakRamUsage)
 
         if jobCompletedChunks >= MIN_COMPLETED_TASKS:
@@ -65,7 +66,7 @@ def __main__():
                     job.ExtraInfo2 = str(timeSpan)
                     job.ExtraInfo3 = str(jobPeakRamUsage) + "Mb"
 
-                    RepositoryUtils.SaveJob( job )
+                    RepositoryUtils.SaveJob(job)
                 else:
                     print("Job Peak Ram Usage is 0Mb at this time, skipping check until next scan...")
             else:

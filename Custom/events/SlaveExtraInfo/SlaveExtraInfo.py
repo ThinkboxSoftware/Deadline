@@ -1,41 +1,37 @@
-
-###############################################################
-## Imports
-###############################################################
 from System import *
 
 from Deadline.Events import *
 from Deadline.Scripting import *
 
-###############################################################
-## This is the function called by Deadline to get an instance of the Draft event listener.
-###############################################################
+
 def GetDeadlineEventListener():
     return SlaveExtraInfoListener()
 
-def CleanupDeadlineEventListener( eventListener ):
+    
+def CleanupDeadlineEventListener(eventListener):
     eventListener.Cleanup()
 
+
 ###############################################################
-## The event listener class.
+#  The event listener class.
 ###############################################################
 class SlaveExtraInfoListener (DeadlineEventListener):
-    def __init__( self ):
+    def __init__(self):
         self.OnSlaveStartedCallback += self.OnSlaveStarted
     
-    def Cleanup( self ):
+    def Cleanup(self):
         del self.OnSlaveStartedCallback
 
-    def OnSlaveStarted( self, slaveName ):
+    def OnSlaveStarted(self, slaveName):
         for i in range(0, 9):
             tempExtraInfo = "ExtraInfo" + str(i)
-            extraInfoQuery = self.GetConfigEntryWithDefault( tempExtraInfo, "" )
+            extraInfoQuery = self.GetConfigEntryWithDefault(tempExtraInfo, "")
 
             if extraInfoQuery != "":
-                envValue = Environment.GetEnvironmentVariable( extraInfoQuery )
+                envValue = Environment.GetEnvironmentVariable(extraInfoQuery)
 
                 if envValue != "":
-                    slaveSettings = RepositoryUtils.GetSlaveSettings( slaveName, True )
+                    slaveSettings = RepositoryUtils.GetSlaveSettings(slaveName, True)
 
                     if i == 0:
                         slaveSettings.SlaveExtraInfo0 = envValue
@@ -56,6 +52,6 @@ class SlaveExtraInfoListener (DeadlineEventListener):
                     elif i == 8:
                         slaveSettings.SlaveExtraInfo8 = envValue
                     elif i == 9:
-                        slaveSettings.SlaveExtraInfo9 = envValue                    
+                        slaveSettings.SlaveExtraInfo9 = envValue
 
-                    RepositoryUtils.SaveSlaveSettings( slaveSettings)
+                    RepositoryUtils.SaveSlaveSettings(slaveSettings)

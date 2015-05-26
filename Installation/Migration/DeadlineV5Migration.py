@@ -7,6 +7,9 @@ Deadline v7 ships with an [IMPORT SETTINGS] WIZARD, so please use this feature f
 from System.IO import *
 from System.Collections.Specialized import *
 
+from Deadline.Scripting import *
+from DeadlineUI.Controls.Scripting.DeadlineScriptDialog import DeadlineScriptDialog
+
 import os
 
 try:
@@ -14,16 +17,14 @@ try:
 except ImportError:
     import xml.etree.ElementTree as xml
 
-from Deadline.Scripting import *
-from DeadlineUI.Controls.Scripting.DeadlineScriptDialog import DeadlineScriptDialog
-
 ########################################################################
-## Globals
+#  Globals
 ########################################################################
 scriptDialog = None
 
+
 ########################################################################
-## Main Function Called By Deadline
+#  Main Function Called By Deadline
 ########################################################################
 def __main__():
     global scriptDialog
@@ -62,8 +63,8 @@ def __main__():
     scriptDialog.EndRow()
 
     scriptDialog.AddRow()
-    scriptDialog.AddSelectionControl("OverwriteExistingSlavesBox","CheckBoxControl",False,"Force Overwrite of Existing Identical Slaves", labelWidth + 200, -1, "If enabled, any existing v6 slaves with the same name as an imported XML file, will be overwritten!")
-    scriptDialog.SetEnabled("OverwriteExistingSlavesBox", False) 
+    scriptDialog.AddSelectionControl("OverwriteExistingSlavesBox", "CheckBoxControl", False, "Force Overwrite of Existing Identical Slaves", labelWidth + 200, -1, "If enabled, any existing v6 slaves with the same name as an imported XML file, will be overwritten!")
+    scriptDialog.SetEnabled("OverwriteExistingSlavesBox", False)
     scriptDialog.EndRow()
 
     scriptDialog.AddControl("Separator3", "SeparatorControl", "Limits", labelWidth + controlWidth - 100, -1)
@@ -74,8 +75,8 @@ def __main__():
     scriptDialog.EndRow()
 
     scriptDialog.AddRow()
-    scriptDialog.AddSelectionControl("OverwriteExistingLimitsBox","CheckBoxControl",False,"Force Overwrite of Existing Identical Limits", labelWidth + 200, -1, "If enabled, any existing v6 limits with the same name, will be overwritten!")
-    scriptDialog.SetEnabled("OverwriteExistingLimitsBox", False)    
+    scriptDialog.AddSelectionControl("OverwriteExistingLimitsBox", "CheckBoxControl", False, "Force Overwrite of Existing Identical Limits", labelWidth + 200, -1, "If enabled, any existing v6 limits with the same name, will be overwritten!")
+    scriptDialog.SetEnabled("OverwriteExistingLimitsBox", False)
     scriptDialog.EndRow()
 
     scriptDialog.AddControl("Separator4", "SeparatorControl", "Users", labelWidth + controlWidth - 100, -1)
@@ -86,17 +87,17 @@ def __main__():
     scriptDialog.EndRow()
 
     scriptDialog.AddRow()
-    scriptDialog.AddSelectionControl("OverwriteExistingUsersBox","CheckBoxControl",False,"Force Overwrite of Existing Identical User Names", labelWidth + 200, -1, "If enabled, any existing v6 users with the same name as an imported XML file, will be overwritten!")
-    scriptDialog.SetEnabled("OverwriteExistingUsersBox", False)    
+    scriptDialog.AddSelectionControl("OverwriteExistingUsersBox", "CheckBoxControl", False, "Force Overwrite of Existing Identical User Names", labelWidth + 200, -1, "If enabled, any existing v6 users with the same name as an imported XML file, will be overwritten!")
+    scriptDialog.SetEnabled("OverwriteExistingUsersBox", False)
     scriptDialog.EndRow()
 
     scriptDialog.AddRow()
-    scriptDialog.AddSelectionControl("MigrateGroupsBox","CheckBoxControl",False,"Migrate v5 User Groups (Ensure 'Normal' / 'Power' groups created prior)", labelWidth + 200, -1, "If enabled, Deadline v5 User Groups: Normal & Power will be migrated and applicable users added automatically.")
+    scriptDialog.AddSelectionControl("MigrateGroupsBox", "CheckBoxControl", False, "Migrate v5 User Groups (Ensure 'Normal' / 'Power' groups created prior)", labelWidth + 200, -1, "If enabled, Deadline v5 User Groups: Normal & Power will be migrated and applicable users added automatically.")
     scriptDialog.SetEnabled("MigrateGroupsBox", False)
     scriptDialog.EndRow()
 
     scriptDialog.AddRow()
-    scriptDialog.AddControl("DummyLabel1", "LabelControl", "", dialogWidth-(buttonWidth*2)+95, -1)
+    scriptDialog.AddControl("DummyLabel1", "LabelControl", "", dialogWidth - (buttonWidth * 2) + 95, -1)
     sendButton = scriptDialog.AddControl("SelectButton", "ButtonControl", "Execute", buttonWidth, -1)
     sendButton.ValueModified.connect(ExecuteMigration)
     closeButton = scriptDialog.AddControl("CloseButton", "ButtonControl", "Close", buttonWidth, -1)
@@ -105,8 +106,9 @@ def __main__():
 
     scriptDialog.ShowDialog(True)
 
+
 ########################################################################
-## Helper Functions
+#  Helper Functions
 ########################################################################
 def InitializeDialog(*args):
     global scriptDialog
@@ -115,10 +117,12 @@ def InitializeDialog(*args):
     LimitsBoxButtonPressed()
     UsersBoxButtonPressed()
 
+    
 def CloseButtonPressed(*args):
     global scriptDialog
     scriptDialog.CloseDialog()
 
+    
 def SlavesBoxButtonPressed(*args):
     global scriptDialog
 
@@ -128,6 +132,7 @@ def SlavesBoxButtonPressed(*args):
     else:
         scriptDialog.SetEnabled("OverwriteExistingSlavesBox", False)
 
+        
 def LimitsBoxButtonPressed(*args):
     global scriptDialog
 
@@ -137,6 +142,7 @@ def LimitsBoxButtonPressed(*args):
     else:
         scriptDialog.SetEnabled("OverwriteExistingLimitsBox", False)
 
+        
 def UsersBoxButtonPressed(*args):
     global scriptDialog
 
@@ -148,6 +154,7 @@ def UsersBoxButtonPressed(*args):
         scriptDialog.SetEnabled("OverwriteExistingUsersBox", False)
         scriptDialog.SetEnabled("MigrateGroupsBox", False)
 
+        
 def ExecuteMigration():
     global scriptDialog
 
@@ -358,11 +365,11 @@ def ExecuteMigration():
 
                         if child.tag == 'Pools':
                             for step_child in child:
-                                if step_child != None:
+                                if step_child is not None:
                                     Pools.append(str(step_child.text))
                         if child.tag == 'Groups':
                             for step_child in child:
-                                if step_child != None:
+                                if step_child is not None:
                                     Groups.append(str(step_child.text))
 
                     # Set Pools for Slave
@@ -389,7 +396,7 @@ def ExecuteMigration():
                 return
 
             if(scriptDialog.GetValue("MigrateGroupsBox")):
-                result = scriptDialog.ShowMessageBox("Have you already created User Groups: 'Normal' and 'Power' in your repository?","Warning", ("Yes","No"))
+                result = scriptDialog.ShowMessageBox("Have you already created User Groups: 'Normal' and 'Power' in your repository?", "Warning", ("Yes", "No"))
                 if(result == "No"):
                     return
 
