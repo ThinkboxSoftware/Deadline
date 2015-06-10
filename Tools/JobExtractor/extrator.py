@@ -60,9 +60,8 @@ for name in file.namelist():
 print("Closing")
 file.close()
 
-job_file = open(JOB_FILENAME, 'r')
-job = json.load(job_file)
-job_file.close()
+with open(JOB_FILENAME, 'r') as job_file:
+    job = json.load(job_file)
 
 print("")
 print("Information:")
