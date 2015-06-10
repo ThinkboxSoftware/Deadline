@@ -22,6 +22,6 @@ try:
         i += 1
 
 except WindowsError as e:
-    print e
+    print(e)
 
 _winreg.CloseKey(explorer)
