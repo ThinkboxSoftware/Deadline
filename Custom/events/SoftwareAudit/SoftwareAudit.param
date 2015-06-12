@@ -1,0 +1,17 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[Software Title]
+Type=string
+Category=Configuration
+CategoryOrder=1
+CategoryIndex=0
+Label=Software Title
+Default=V-Ray for 3dsmax 2014 for x64
+Description=Which software title whose version we should report. As seen in the 'Add/remove programs' list.
