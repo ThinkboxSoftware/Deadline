@@ -27,7 +27,7 @@ for line in original:
 		jobs.write(line)
 		job += 1 
 		jobs.close()
-		jobs = open("jobs%s.txt" %job, "w")
+		jobs = open("task%s.txt" %job, "w")
 	if m: 
 		jobs.write(line)
 	else: 
