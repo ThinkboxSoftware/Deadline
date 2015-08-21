@@ -2,6 +2,7 @@
 bin
 obj
 *.pyc
+.DS_Store
 
 # mstest test results
 TestResults
