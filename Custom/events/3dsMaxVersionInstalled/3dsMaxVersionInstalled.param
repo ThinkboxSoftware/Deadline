@@ -1,0 +1,17 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[MaxVersions]
+Type=multilinemultifilename
+Category=Configuration
+CategoryOrder=1
+CategoryIndex=0
+Label=Max Versions
+Default=C:\Program Files\Autodesk\3ds Max 2011\3dsmax.exe;C:\Program Files\Autodesk\3ds Max 2012\3dsmax.exe;C:\Program Files\Autodesk\3ds Max 2013\3dsmax.exe;C:\Program Files\Autodesk\3ds Max 2014\3dsmax.exe;C:\Program Files\Autodesk\3ds Max 2015\3dsmax.exe;C:\Program Files\Autodesk\3ds Max 2016\3dsmax.exe
+Description=The path to the 3dsmax.exe used for rendering on each slave, use a ; to separate multiple paths.
