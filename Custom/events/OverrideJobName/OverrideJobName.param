@@ -1,0 +1,28 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[Prefix]
+Type=string
+Label=Prefix
+Description=Job Name Prefix to Add
+Category=Options
+CategoryOrder=0
+CategoryIndex=1
+DisableIfBlank=false
+Default=
+
+[Suffix]
+Type=string
+Label= Suffix
+Description=Job Name Suffix to Add
+Category=Options
+CategoryOrder=0
+CategoryIndex=2
+DisableIfBlank=false
+Default=
