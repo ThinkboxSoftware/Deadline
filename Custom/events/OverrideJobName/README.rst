@@ -20,7 +20,7 @@ So, let's test if it's a 3dsMax job:
 
 Cool. The callback returns the 3dsmax only job object for us so we can modify it:
 
-def OnJobSubmitted(self, job):
+    def OnJobSubmitted(self, job):
 
 Then we proceed to pull the event plugin config settings for what we have set via the "Configure Events..." dialog via Monitor:
 
