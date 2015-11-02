@@ -12,11 +12,14 @@ import os
 from Deadline.Events import *
 from Deadline.Scripting import *
 
+
 def GetDeadlineEventListener():
     return ConfigSlaveEventListener()
 
+
 def CleanupDeadlineEventListener(eventListener):
     eventListener.Cleanup()
+
 
 class ConfigSlaveEventListener (DeadlineEventListener):
     def __init__(self):
@@ -27,28 +30,27 @@ class ConfigSlaveEventListener (DeadlineEventListener):
 
     # This is called every time the Slave starts
     def OnSlaveStarted(self, slavename):
-        
         # exit if not Windows slave
         if os.name != 'nt':
             return
 
         configVersions = self.GetConfigEntry("MaxVersions").strip()
-        maxVersions = StringUtils.FromSemicolonSeparatedString( configVersions )
+        maxVersions = StringUtils.FromSemicolonSeparatedString(configVersions)
 
         versionList = []
 
         for maxVersion in maxVersions:
-            if File.Exists( maxVersion ):
+            if File.Exists(maxVersion):
                 # Figure out .NET FileVersion of 3dsmax.exe
-                exeVersion = FileUtils.GetExecutableVersion( maxVersion )
+                exeVersion = FileUtils.GetExecutableVersion(maxVersion)
                 # append to our list
                 versionList.append(exeVersion)
 
         if len(versionList) > 0:
             versions = ','.join(versionList)
-            self.LogInfo( "3dsMax.exe versions: %s" % versions )
+            self.LogInfo("3dsMax.exe versions: %s" % versions)
 
             slave = RepositoryUtils.GetSlaveSettings(slavename, True)
             slave.SlaveExtraInfo0 = versions
-            
+
             RepositoryUtils.SaveSlaveSettings(slave)
