@@ -451,7 +451,7 @@ def ExecuteMigration():
                     args.Add("%s" % NotifyByEmail)
                     args.Add("%s" % NotifyByPopupMessage)
 
-                    if bool(scriptDialog.GetValue("MigrateGroupsBox") == True):
+                    if bool(scriptDialog.GetValue("MigrateGroupsBox")) is True:
                         args.Add("%s" % UserLevel)
 
                     exitCode = ClientUtils.ExecuteCommand(args)

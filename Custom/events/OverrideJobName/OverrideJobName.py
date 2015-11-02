@@ -1,4 +1,3 @@
-
 ###############################################################
 # Imports
 ###############################################################
@@ -43,7 +42,7 @@ class OverrideJobNameListener (DeadlineEventListener):
         tempName = ""
 
         if prefix != "":
-            tempName += prefix+"_"
+            tempName += prefix + "_"
 
         if job.JobName != "":
             tempName += str(job.JobName)
@@ -52,7 +51,7 @@ class OverrideJobNameListener (DeadlineEventListener):
         tempName += str(job.JobId)
 
         if suffix != "":
-            tempName += "_"+suffix
+            tempName += "_" + suffix
 
         job.JobName = tempName
 
