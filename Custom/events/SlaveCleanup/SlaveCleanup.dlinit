@@ -1,0 +1,5 @@
+﻿Enabled=False
+CleanupPaths=
+DeleteDays=30
+Verbose=True
+DryRun=True
