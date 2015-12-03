@@ -1,0 +1,46 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[CleanupPaths]
+Type=MultiLineMultiFolder
+Category=Cleanup Options
+CategoryOrder=1
+CategoryIndex=0
+Label=Cleanup Paths
+Default=
+Description=One or more directory paths (local or network) which the slave will attempt to recursively scan and delete files/dirs (absolute file path only, relative not supported).
+
+[DeleteDays]
+Type=integer
+Category=Cleanup Options
+CategoryOrder=1
+CategoryIndex=1
+Label=Delete Days
+Default=30
+Minimum=1
+Maximum=100
+Description=Number of 'modified' days old files/directories must be to be considered for deletion.
+
+[Verbose]
+Type=boolean
+Category=Cleanup Options
+CategoryOrder=1
+CategoryIndex=2
+Label=Verbose Logging
+Default=true
+Description=Verbose variable is purely for testing/development usage and should be left False as it effects the script performance.
+
+[DryRun]
+Type=boolean
+Category=Cleanup Options
+CategoryOrder=1
+CategoryIndex=3
+Label=Dry Run Only
+Default=true
+Description=Dry Run variable allows execution of the script, but with ALL actual file-system operations being replaced with a print statement, describing intent.
