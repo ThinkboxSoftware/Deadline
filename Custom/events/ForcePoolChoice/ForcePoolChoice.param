@@ -1,0 +1,17 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[Verbose]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=1
+Label=Verbose output
+Default=true
+Description=Show steps used to confirm and set pools, which is good for troubleshooting!
