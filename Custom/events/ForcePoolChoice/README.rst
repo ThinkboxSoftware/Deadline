@@ -9,8 +9,7 @@ pools.
 
 This plugin relies on user groups existing with the same name as the available
 pools. If a user is in one or more of these groups they are able to submit to
-the pool of the same name. If they are not, the job will be submitted to the
-first group the user is a part of.
+the pool of the same name.
 
 If they are not in a definied group, the job will be submitted without a pool.
 
