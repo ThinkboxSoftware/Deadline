@@ -15,3 +15,12 @@ CategoryIndex=1
 Label=Verbose output
 Default=true
 Description=Show steps used to confirm and set pools, which is good for troubleshooting!
+
+[SecondaryPool]
+Type=string
+Category=Options
+CategoryOrder=0
+CategoryIndex=2
+Label=Secondary Pool (optional)
+Default=
+Description=If specified, assign the specified pool as the secondary pool

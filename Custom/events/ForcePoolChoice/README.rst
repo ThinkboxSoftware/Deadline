@@ -13,3 +13,7 @@ the pool of the same name. If they are not, the job will be submitted to the
 first group the user is a part of.
 
 If they are not in a definied group, the job will be submitted without a pool.
+
+There is also an option to assign a secondary pool to any job submitted. This
+will take effect on all jobs which are submitted regardless of user group or
+pool configuration.

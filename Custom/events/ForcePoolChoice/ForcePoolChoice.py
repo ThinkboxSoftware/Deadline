@@ -27,16 +27,21 @@ class PluginListener(DeadlineEventListener):
 
     def OnJobSubmitted(self, job):
         user = job.JobUserName
-        groups = list(RepositoryUtils.GetUserGroupsForUser(user))
+        user_groups = list(RepositoryUtils.GetUserGroupsForUser(user))
         verbose = self.GetBooleanConfigEntry('Verbose')
+        secondary_pool = self.GetConfigEntry('SecondaryPool')
         default_group = ''
 
         if verbose:
-            print("Found these user groups for {0}: {1}.".format(user, ','.join(groups)))
+            print("Found these user groups for {0}: {1}.".format(user, ','.join(user_groups)))
 
-        if job.JobPool not in groups:
+        if job.JobPool not in user_groups:
             if verbose:
                 print("Job's pool name does not match any of {0}'s group names.".format(user))
                 print("Setting pool to '{0}'.".format(default_group))
             job.JobPool = default_group
-            RepositoryUtils.SaveJob(job)
+        
+        if secondary_pool is not '':
+            job.JobSecondaryPool = secondary_pool
+
+        RepositoryUtils.SaveJob(job)
