@@ -80,7 +80,7 @@ def FixRenderTime( TaskDict ):
         dtStart = datetime.datetime.strptime(TaskDict["RenderStartTime"], "%b %d/%y  %H:%M:%S")
         dtNow = datetime.datetime.now()
         
-        print ("%s --> %s" % (TaskDict["RenderStartTime"], dtStart.isoformat() ) )
+        # print ("%s --> %s" % (TaskDict["RenderStartTime"], dtStart.isoformat() ) )
         
         timeDelta = dtNow - dtStart
         
