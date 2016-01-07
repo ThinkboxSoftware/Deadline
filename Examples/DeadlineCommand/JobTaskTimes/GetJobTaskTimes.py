@@ -28,7 +28,7 @@ OUTPUT EXAMPLE:
 '''
 
 # ======== Constants ========
-DEADLINECOMMAND_FULLPATH="C:\\Program Files\\Thinkbox\\Deadline8\\bin\\deadlinecommand.exe"
+DEADLINECOMMAND_FULLPATH="C:\\Program Files\\Thinkbox\\Deadline7\\bin\\deadlinecommand.exe"
 
 # ======== Imports ========
 import datetime
