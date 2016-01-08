@@ -1,0 +1,38 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[JobPools]
+Type=string
+Category=Options
+CategoryOrder=0
+CategoryIndex=1
+Label=Applicable Pools
+Default=
+Description=A comma separated list of pools to set JobIsInterruptible to True automatically when the job is submitted.
+
+[Interruptible]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=2
+Label=Interruptible
+Default=True
+Description=Whether the Job Is Interruptible setting is enabled or not.
+
+[InterruptiblePercentage]
+Type=integer
+Minimum=0
+Maximum=100
+Increment=1
+Category=Options
+CategoryOrder=0
+CategoryIndex=3
+Label=InterruptiblePercentage
+Default=100
+Description=If Job Is Interruptible is enabled, what percentage % should be set.
