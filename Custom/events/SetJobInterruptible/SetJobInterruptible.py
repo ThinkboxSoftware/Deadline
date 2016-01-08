@@ -4,17 +4,12 @@
 from Deadline.Events import *
 from Deadline.Scripting import *
 
-
-###############################################################
-#  This is the function called by Deadline to get an instance of the Draft event listener.
-###############################################################
 def GetDeadlineEventListener():
     return SetJobInterruptibleListener()
 
 
 def CleanupDeadlineEventListener(eventListener):
     eventListener.Cleanup()
-
 
 ###############################################################
 #  The event listener class.
