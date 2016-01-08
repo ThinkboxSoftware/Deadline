@@ -1,8 +1,9 @@
 ###############################################################
-#  Imports
+# Imports
 ###############################################################
 from Deadline.Events import *
 from Deadline.Scripting import *
+
 
 def GetDeadlineEventListener():
     return SetJobInterruptibleListener()
@@ -11,8 +12,9 @@ def GetDeadlineEventListener():
 def CleanupDeadlineEventListener(eventListener):
     eventListener.Cleanup()
 
+
 ###############################################################
-#  The event listener class.
+# The event listener class.
 ###############################################################
 class SetJobInterruptibleListener (DeadlineEventListener):
     def __init__(self):
@@ -23,18 +25,18 @@ class SetJobInterruptibleListener (DeadlineEventListener):
 
     def OnJobSubmitted(self, job):
         
-        self.LogInfo( ">Checking if submitted job should be made interruptible" )
+        self.LogInfo(">Checking if submitted job should be made interruptible")
 
-        poolNames = self.GetConfigEntry( "JobPools" ).split( ',' )
-        interruptible = self.GetBooleanConfigEntryWithDefault( "Interruptible", True )
-        interruptiblePercentage = self.GetIntegerConfigEntryWithDefault( "InterruptiblePercentage", 100 )
+        poolNames = self.GetConfigEntry("JobPools").split(',')
+        interruptible = self.GetBooleanConfigEntryWithDefault("Interruptible", True)
+        interruptiblePercentage = self.GetIntegerConfigEntryWithDefault("InterruptiblePercentage", 100)
         
         for poolName in poolNames:
             if poolName.lower() == job.JobPool.lower():
                 job.JobInterruptible = True
-                self.LogInfo ( "+Job Is Interruptible is Enabled" )
+                self.LogInfo("+Job Is Interruptible is Enabled")
                 job.JobInterruptiblePercentage = interruptiblePercentage
-                self.LogInfo ( "+Job Interruptible Percentage set to: %s" % interruptiblePercentage )
+                self.LogInfo("+Job Interruptible Percentage set to: %s" % interruptiblePercentage)
                 break
 
         RepositoryUtils.SaveJob(job)
