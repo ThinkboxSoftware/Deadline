@@ -1,5 +1,5 @@
 '''
-This script shows an example of working with the output of the GetJobTasks subcommand.  
+This script shows an example of working with the output of the GetJobTasks subcommand.
 
 The script takes a single argument, which is the JobID of the job.  When calculating the elapsed time for
 rendering tasks, the script does not account for daylight savings time differences or time zone differences.
@@ -27,9 +27,6 @@ OUTPUT EXAMPLE:
 
 '''
 
-# ======== Constants ========
-DEADLINECOMMAND_FULLPATH="C:\\Program Files\\Thinkbox\\Deadline7\\bin\\deadlinecommand.exe"
-
 # ======== Imports ========
 import datetime
 from time import time
@@ -40,28 +37,33 @@ import subprocess
 from Deadline.Scripting import *
 from Deadline.Jobs import *
 
-#======== Function Definitions ========
+# ======== Constants ========
+DEADLINECOMMAND_FULLPATH = "C:\\Program Files\\Thinkbox\\Deadline7\\bin\\deadlinecommand.exe"
+
+
+# ======== Function Definitions ========
 def secToHHMMSS(seconds):
     """
-    Converts input seconds into the desired output display format.
-    Rounds to the nearest second.
+        Converts input seconds into the desired output display format.
+        Rounds to the nearest second.
     """
-    rndSec = int (seconds + 0.5) #  rounded seconds
+
+    rndSec = int(seconds + 0.5)  # rounded seconds
     
-    hrs = int( rndSec/3600 )
-    min = int(   (rndSec - hrs*3600) / 60   )
-    sec = rndSec - hrs*3600 - min*60
+    hrs = int(rndSec / 3600)
+    min = int((rndSec - hrs * 3600) / 60)
+    sec = rndSec - hrs * 3600 - min * 60
     
     return str(hrs).zfill(2) + ":" + str(min).zfill(2) + ":" + str(sec).zfill(2) + ".0000000"
 
 
-def FixRenderTime( TaskDict ):
+def FixRenderTime(TaskDict):
     """
-    Estimates the render time for tasks that are rendering, and handles some special cases.
+        Estimates the render time for tasks that are rendering, and handles some special cases.
     """
     
     # Can't help you if the required keys are missing.
-    if (not "TaskStatus" in TaskDict ) or (not "RenderStartTime" in TaskDict ):
+    if ("TaskStatus" not in TaskDict) or ("RenderStartTime" not in TaskDict):
         return
     
     # Estimate the Render time when rendering
@@ -80,11 +82,11 @@ def FixRenderTime( TaskDict ):
         dtStart = datetime.datetime.strptime(TaskDict["RenderStartTime"], "%b %d/%y  %H:%M:%S")
         dtNow = datetime.datetime.now()
         
-        # print ("%s --> %s" % (TaskDict["RenderStartTime"], dtStart.isoformat() ) )
+        # print ("%s --> %s" % (TaskDict["RenderStartTime"], dtStart.isoformat()))
         
         timeDelta = dtNow - dtStart
         
-        TaskDict["RenderTime"] = secToHHMMSS( timeDelta.seconds )
+        TaskDict["RenderTime"] = secToHHMMSS(timeDelta.seconds)
         TaskDict["TaskRenderTime"] = TaskDict["RenderTime"]
     else:
         # ASSUMPTION: Assume zero for all other TaskStatus values.
@@ -94,7 +96,7 @@ def FixRenderTime( TaskDict ):
     return
 
 
-def ParseGetJobTasksOutput( output ):
+def ParseGetJobTasksOutput(output):
     """
     Parses the output of the call to GetJobTasks.  The result is a "TaskList", mean a list of "TaskDict"s,
     where a "TaskDict" is a dictionary of key,value pairs of information about the Task.
@@ -103,24 +105,30 @@ def ParseGetJobTasksOutput( output ):
     TaskList = []
     
     # All entries in this dictionary must be lower case.
-    IntegerKeysDict={'averageram', 'averagerampercentage', 'averageswap', 'cpuutilisation', 'errorcount', 
-        'imagefilesize', 'peakcpuusage', 'peakrampercentage', 'peakramusage', 'peakswap', 'taskaverageram',
-        'taskaveragerampercentage', 'taskaverageswap', 'taskcpuitilisation', 'taskerrorcount', 'taskid',
-        'taskimagefilesize', 'taskpeakcpuusage', 'taskpeakrampercentage', 'taskpeakramusage', 'taskpeakswap',
-        'tasktotalcpuclocks', 'taskusedcpuclocks', 'totalcpuclocks', 'usedcpuclocks'}
+    IntegerKeysDict = {'averageram', 'averagerampercentage', 'averageswap',
+                       'cpuutilisation', 'errorcount', 'imagefilesize',
+                       'peakcpuusage', 'peakrampercentage', 'peakramusage',
+                       'peakswap', 'taskaverageram',
+                       'taskaveragerampercentage', 'taskaverageswap',
+                       'taskcpuitilisation', 'taskerrorcount', 'taskid',
+                       'taskimagefilesize', 'taskpeakcpuusage',
+                       'taskpeakrampercentage', 'taskpeakramusage',
+                       'taskpeakswap', 'tasktotalcpuclocks',
+                       'taskusedcpuclocks', 'totalcpuclocks', 'usedcpuclocks'}
     
     # All entries in this dictionary must be lower case.
-    BooleanKeysDict={'isstarting', 'taskisstarted', 'taskwaitingtostart', 'waitingtostart'}
+    BooleanKeysDict = {'isstarting', 'taskisstarted', 'taskwaitingtostart',
+                       'waitingtostart'}
     
     # Parse the lines
     TaskDict = {}
     lines = output.splitlines()
     for line in lines:
-        if ( not line.strip() ):
+        if (not line.strip()):
             if (len(TaskDict) > 0):
-                if ( "10675199.02:48:05.4775807" == TaskDict["TaskRenderTime"]):
-                    FixRenderTime( TaskDict )
-                TaskList.append( copy.copy(TaskDict) )
+                if ("10675199.02:48:05.4775807" == TaskDict["TaskRenderTime"]):
+                    FixRenderTime(TaskDict)
+                TaskList.append(copy.copy(TaskDict))
                 TaskDict = {}
                 
             continue
@@ -140,7 +148,7 @@ def ParseGetJobTasksOutput( output ):
             
         # Check for and handle keys that should have boolean values.
         if (kv[0].lower() in BooleanKeysDict):
-            TaskDict[kv[0]] = ( kv[1].lower() in ("true", "t", "yes", "y", "1") )
+            TaskDict[kv[0]] = (kv[1].lower() in ("true", "t", "yes", "y", "1"))
             continue
         
         # Assume all other keys have string values.
@@ -149,22 +157,23 @@ def ParseGetJobTasksOutput( output ):
     return TaskList
 
 
-def PrintJobTaskTimes( TaskList ):
+def PrintJobTaskTimes(TaskList):
     """
     Prints out the task times for tasks contained in the TaskList.
     """
     
     for TaskDict in TaskList:
         TaskID = "?"
-        if ( "TaskId" in TaskDict):
-            TaskID = ("%d" % TaskDict["TaskId"])
+        if "TaskId" in TaskDict:
+            TaskID = "%d" % TaskDict["TaskId"]
         
-        print ( "%s: %s (%s)" % (TaskID, TaskDict["TaskRenderTime"], TaskDict["TaskStatus"] ) )
+        print("%s: %s (%s)" % (TaskID, TaskDict["TaskRenderTime"], TaskDict["TaskStatus"]))
+
     
-#======== Main Entry Point ========
+# ======== Main Entry Point ========
 def __main__(jobId):
     
-    job =RepositoryUtils.GetJob(jobId, True)
+    job = RepositoryUtils.GetJob(jobId, True)
     if (not job):
         print("The specified Job ID was not found: %s" % jobId)
         exit
@@ -172,12 +181,11 @@ def __main__(jobId):
     call_deadline = subprocess.Popen([DEADLINECOMMAND_FULLPATH, 'GetJobTasks', jobId], stdout=subprocess.PIPE)
     output = call_deadline.communicate()[0]
     
-    TaskList=ParseGetJobTasksOutput(output)
+    TaskList = ParseGetJobTasksOutput(output)
     
     # Uncomment the following lines to see a full readout of each Task's information.
-    #for TaskDict in TaskList:
-    #    print("--")
-    #    pprint.pprint(TaskDict)
+    # for TaskDict in TaskList:
+    #     print("--")
+    #     pprint.pprint(TaskDict)
 
-    PrintJobTaskTimes( TaskList )
-    
+    PrintJobTaskTimes(TaskList)
