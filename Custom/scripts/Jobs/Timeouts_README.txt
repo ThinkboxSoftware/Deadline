@@ -1,0 +1,3 @@
+A couple of the job properties "Timeout" checkboxes are slightly broken in some versions of Deadline 7.2. The issue has been fixed internally and ill be included in Deadline 8.0, but this script provides a quick fix/UI dialog that brings this functionality back for those users who can't upgrade to the latest point release of Deadline immediately.
+
+Drop the code below into a file and call it something like: "Timeouts.py" and copy the file into <your_repo>/custom/scripts/jobs. Now open monitor, right-click on one or more jobs, scripts -> Timeouts, use the UI to check or uncheck the settings and click "apply".
