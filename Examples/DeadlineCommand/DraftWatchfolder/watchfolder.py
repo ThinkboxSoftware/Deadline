@@ -26,9 +26,10 @@ imp.load_source(
 
 
 # Change these to match your own environment
-path_to_watch = "C:\Users\Justin\Desktop\in"
-path_to_send = "C:\Users\Justin\Desktop\out"
-script_to_run = "C:\Users\Justin\Desktop\codecconvert.py"
+# Do not make watchfolder = outputfolder
+path_to_watch = "\watchfolder"
+path_to_send = "\outputfolder"
+script_to_run = "\codecconvert.py"
 
 
 def __main__(*args):
@@ -36,17 +37,17 @@ def __main__(*args):
     # Create a dictionary of all the files in the watchfolder (a.k.a. path_to_watch)
     before = dict([(f, None) for f in os.listdir(path_to_watch)])
     while True:
-        # How many seconds to wait between folder checks
+        # How many seconds to wait between folder checks - be careful about making this less than 2
         time.sleep(5)
 
         # Create a dictionary of all the files in the watchfolder
         after = dict([(f, None) for f in os.listdir(path_to_watch)])
 
         # Compare the two lists to find new files
-        added = [f for f in after if not f in before]
+        added = [f for f in after if f not in before]
 
         # Compare the two lists to find files that were removed
-        #removed = [f for f in before if not f in after]
+        # removed = [f for f in before if not f in after]
 
         if added:
             # print "Added: ", ", ".join (added)
@@ -66,6 +67,10 @@ def __main__(*args):
 
 
 def CreateAndSubmitJobs(newFile):
+    """
+    Creates a Draft job, with file named newFile.
+    """
+
     # These values are all rough defaults, you may need to change them to match your farm
     # Creating the job file programmatically
     # http://docs.thinkboxsoftware.com/products/deadline/7.0/1_User%20Manual/manual/manual-submission.html#job-info-file
@@ -80,10 +85,10 @@ def CreateAndSubmitJobs(newFile):
 
         # If you've got a specific machine you want to test all this locally on,
         # set this to that machine
-        writer.WriteLine("Whitelist=mobile-010")
+        # writer.WriteLine("Whitelist=my-machine")
 
         # Limits the number of machines working on the job to 1, just for testing
-        writer.WriteLine("MachineLimit=1")
+        # writer.WriteLine("MachineLimit=1")
         writer.WriteLine("OutputDirectory0=%s\n" % path_to_send)
 
     finally:
