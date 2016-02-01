@@ -1,6 +1,7 @@
 import sys
 import os
 import time
+import imp
 
 from System import Array
 from System.Collections.Specialized import *
@@ -10,11 +11,7 @@ from System.Diagnostics import *
 
 from Deadline.Scripting import *
 
-from DraftIntegration import *
-
 # For Draft Integration
-import imp
-import os
 imp.load_source(
     'DraftIntegration',
     os.path.join(
@@ -24,12 +21,13 @@ imp.load_source(
         "Main",
         "DraftIntegration.py"))
 
+from DraftIntegration import *
 
 # Change these to match your own environment
 # Do not make watchfolder = outputfolder
-path_to_watch = "\watchfolder"
-path_to_send = "\outputfolder"
-script_to_run = "\codecconvert.py"
+path_to_watch = "C:\Users\Justin\Desktop\in"
+path_to_send = "C:\Users\Justin\Desktop\out"
+script_to_run = "C:\Users\Justin\Desktop\deadline_watchfolder\codecconvert.py"
 
 
 def __main__(*args):
@@ -85,7 +83,7 @@ def CreateAndSubmitJobs(newFile):
 
         # If you've got a specific machine you want to test all this locally on,
         # set this to that machine
-        # writer.WriteLine("Whitelist=my-machine")
+        writer.WriteLine("Whitelist=mobile-010")
 
         # Limits the number of machines working on the job to 1, just for testing
         # writer.WriteLine("MachineLimit=1")
