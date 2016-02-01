@@ -93,7 +93,7 @@ def CommandSelectionChanged( *args ):
 		IpmiCommand = "on"
 	elif command == "soft power off":
 		IpmiCommand = "soft"
-	elif IpmiCommand == "power off":
+	elif command == "power off":
 		IpmiCommand = "off"
 	else:
 		IpmiCommand = "reset"
