@@ -1,1 +1,0 @@
-"%DEADLINE_PATH%"\deadlinecommand.exe -ExecuteScript %~dp0watchfolder.py
