@@ -1,0 +1,18 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[EnvKeys]
+Type=MultiLineString
+Label=Environment Keys
+Description=Envrionment Keys to be ignored
+Category=Options
+CategoryOrder=0
+CategoryIndex=1
+DisableIfBlank=false
+Default=
