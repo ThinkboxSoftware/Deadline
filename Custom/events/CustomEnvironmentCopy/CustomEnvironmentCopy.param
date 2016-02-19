@@ -7,10 +7,10 @@ Label=Enabled
 Default=false
 Description=If this event plugin is enabled.
 
-[EnvKeys]
+[UnwantedEnvKeys]
 Type=MultiLineString
-Label=Environment Keys
-Description=Envrionment Keys to be ignored
+Label=Unwanted Environment Keys
+Description=Envrionment Keys to be ignored in the copy
 Category=Options
 CategoryOrder=0
 CategoryIndex=1
