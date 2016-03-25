@@ -19,6 +19,12 @@ configure the container to mount an actual repository file server via fstab.
 
 ## Other Considerations ##
 
+### Container Size ###
+
+The examples provided are intentionally simple for the sake of clarity and understanding.  However, see the 
+[ImageSize.md](ImageSize.md) file for a discussion and an example technique to reduce the container image size.
+
+### Init System ###
 The examples in this section do not use an init system to manage processes within the container.  If you are deploying 
 containers into a production environment, there are 
 [reasons why](https://blog.phusion.nl/2015/01/20/docker-and-the-pid-1-zombie-reaping-problem/) you may wish to add 
