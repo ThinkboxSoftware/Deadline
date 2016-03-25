@@ -39,7 +39,7 @@ to add the ```wget``` program to your image first.
             --licenseserver @lic_thinkbox \ 
             --noguimode true \ 
             --restartstalled true \
-       && rm -rf /thinkboxsetup
+       && cd .. && rm -rf /thinkboxsetup
 
 Since the ```/thinkboxsetup``` folder is created, the installer is pulled down, the installer is executed, and the 
 folder is removed *all in one build step*, the installer folder and .run file do not become part of the resulting build 
