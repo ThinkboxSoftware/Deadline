@@ -2,8 +2,8 @@
 
 It is often desireable to keep container images as small as possible.  This can be somewhat challenging given that the 
 union filesystem used by Docker containers is purely additive in nature.  Once one or more files are added to the 
-filesystem with the ```COPY``` or ```ADD``` build commands, subsequent commands to remove the file(s) will not reduce the
-container size, even though the file is deleted from the perspective of the container's filesystem.
+filesystem with the ```COPY``` or ```ADD``` build commands, subsequent commands to remove the file(s) will not reduce 
+the container size, even though the file is deleted from the perspective of the container's filesystem.
 
 Using the Ubuntu 7.2_Client exmample, we add the installer to the container using
 
@@ -23,15 +23,17 @@ make heavy use of containers, but they can introduce challenges of their own.
 
 Here is an alternative apporach that prevents the installer from remaining with the resulting image.  The approach is
 to add the installer, run it, and remove it all in one build step.  The question is, how do we get the installer into
-the image context without using build commands like ```COPY``` or ```ADD```?  
+the image without using build commands like ```COPY``` or ```ADD```?  
 
 One way is to place the installer on an internal server such that it can be retrieved with ```wget```.  You may need
 to add the ```wget``` program to your image first.
 
     RUN apt-get update && apt-get -y install wget
 
-    RUN mkdir /thinkboxsetup/ && cd /thinkboxsetup \
+    RUN mkdir /thinkboxsetup/ \ 
+        && cd /thinkboxsetup \
         && wget http://my.internal.server/deadline7_installer/DeadlineClient-7.2.3.0-linux-x64-installer.run \
+        && chmod +x *.run \
         && /thinkboxsetup/DeadlineClient-7.*-linux-x64-installer.run \
             --mode unattended \
             --unattendedmodeui minimal \ 
@@ -39,7 +41,8 @@ to add the ```wget``` program to your image first.
             --licenseserver @lic_thinkbox \ 
             --noguimode true \ 
             --restartstalled true \
-       && cd .. && rm -rf /thinkboxsetup
+       && cd .. \
+       && rm -rf /thinkboxsetup
 
 Since the ```/thinkboxsetup``` folder is created, the installer is pulled down, the installer is executed, and the 
 folder is removed *all in one build step*, the installer folder and .run file do not become part of the resulting build 
