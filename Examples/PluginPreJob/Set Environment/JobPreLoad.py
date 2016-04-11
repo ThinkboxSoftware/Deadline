@@ -4,10 +4,6 @@
     This should work on Deadline 6 and 7's APIs. If there are problems,
     please report them to support@thinkboxsoftware.com
     
-    RepositoryUtils.GetSlaveSettings will return an empty, valid,
-    SlaveSettings object. Change 'slaveNameX' entries below to avoid
-    creating fake Slaves within the Database.
-    
     Written by Edwin Amsler <support@thinkboxsoftware.com>
 '''
 from Deadline.Scripting import *
