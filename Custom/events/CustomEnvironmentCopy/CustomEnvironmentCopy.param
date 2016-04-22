@@ -1,0 +1,18 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[UnwantedEnvKeys]
+Type=MultiLineString
+Label=Unwanted Environment Keys
+Description=Envrionment Keys to be ignored in the copy
+Category=Options
+CategoryOrder=0
+CategoryIndex=1
+DisableIfBlank=false
+Default=
