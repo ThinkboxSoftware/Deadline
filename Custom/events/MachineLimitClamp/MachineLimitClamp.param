@@ -1,0 +1,27 @@
+[Enabled]
+Type=boolean
+Category=Options
+CategoryOrder=0
+Index=0
+Label=Enabled
+Default=false
+Description=If this event plugin is enabled.
+
+[Limit]
+Type=Integer
+Category=Options
+CategoryOrder=0
+Index=1
+Label=Machine Limit
+Default=50
+Description=Max Machine Limit.
+Minimum=0
+
+[UserGroups]
+Type=String
+Category=Options
+CategoryOrder=0
+Index=2
+Default=Casual
+Label=Groups
+Description=Users Group.
