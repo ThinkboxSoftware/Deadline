@@ -26,7 +26,7 @@ def __main__():
         added = [f for f in after if f not in before]
 
         if added:
-            #print "Added: ", ", ".join(added)
+            # print "Added: ", ", ".join(added)
 
             for f in added:
                 # Create a new deadline job for each new file
