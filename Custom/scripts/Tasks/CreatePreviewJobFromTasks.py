@@ -1,6 +1,6 @@
-#---------------------------------------
+# ---------------------------------------
 # Created by Justin Blagden - March 2016
-#---------------------------------------
+# ---------------------------------------
 from Deadline.Scripting import *
 from Deadline.Jobs import *
 from Deadline.Users import *
