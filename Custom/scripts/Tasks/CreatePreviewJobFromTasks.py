@@ -27,10 +27,10 @@ def __main__(*args):
         #We're going to make this *slightly* more important than the original job
         highpriority = selectedJob.Priority
 
+        #Deadline doesn't allow priorities greater than 100
+        highpriority += 1
         if highpriority > 100:
             highpriority = 100
-        else:
-            highpriority += 1
 
         deadlineTemp = ClientUtils.GetDeadlineTempPath()
         jobInfoFile = os.path.join(deadlineTemp, "duplicate_job_info.job")
