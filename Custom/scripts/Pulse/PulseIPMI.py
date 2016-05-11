@@ -63,7 +63,7 @@ def __main__(*args):
             # args = "reset -u -N %s -U %s -P %s" % (SLAVE_IP, USERNAME, PASSWORD )
             # #different syntax if your using "../ipmiutil" instead of "../ipmitool"
 
-        print "arguments: %s" % args
+        print("arguments: %s" % args)
 
         if File.Exists(IPMIExec):
             process = ProcessUtils.SpawnProcess(
@@ -72,12 +72,12 @@ def __main__(*args):
 
             if process.StandardOutput is not None:
                 output = process.StandardOutput.ReadToEnd()
-                print "%s" % output
+                print("%s" % output)
             else:
-                print "IPMI StdOut could not be obtained"
+                print("IPMI StdOut could not be obtained")
                 return
         else:
-            print "Missing IPMI Exec: %s could not be found!" % IPMIExec
+            print("Missing IPMI Exec: %s could not be found!" % IPMIExec)
             return
 
         # Slowdown IPMI commands so not too many requests are made through the
@@ -85,4 +85,4 @@ def __main__(*args):
         time.sleep(10)
 
     else:
-        print "Failed to execute PulseIPMI.py script - 2 arguments must be provided!"
+        print("Failed to execute PulseIPMI.py script - 2 arguments must be provided!")
