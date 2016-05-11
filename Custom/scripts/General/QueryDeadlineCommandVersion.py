@@ -13,4 +13,4 @@ def __main__():
 		DeadlineCommandExe = Path.Combine( ClientUtils.GetBinDirectory(), "deadlinecommand.exe" )
 		DeadlineCommandExeInfo = FileVersionInfo.GetVersionInfo( DeadlineCommandExe )
 		version = DeadlineCommandExeInfo.FileVersion
-		print version
+		print(version)
