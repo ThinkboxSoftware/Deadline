@@ -8,9 +8,10 @@ from System.Diagnostics import *
 
 from Deadline.Scripting import *
 
+
 def __main__():
-	if( SystemUtils.IsRunningOnWindows ):
-		DeadlineCommandExe = Path.Combine( ClientUtils.GetBinDirectory(), "deadlinecommand.exe" )
-		DeadlineCommandExeInfo = FileVersionInfo.GetVersionInfo( DeadlineCommandExe )
-		version = DeadlineCommandExeInfo.FileVersion
-		print version
+    if(SystemUtils.IsRunningOnWindows):
+        DeadlineCommandExe = Path.Combine(ClientUtils.GetBinDirectory(), "deadlinecommand.exe")
+        DeadlineCommandExeInfo = FileVersionInfo.GetVersionInfo(DeadlineCommandExe)
+        version = DeadlineCommandExeInfo.FileVersion
+        print version
