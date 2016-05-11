@@ -73,7 +73,7 @@ def main():
 
     # Tabulate everything, check in whatever was still out, etc
     total_duration = timedelta(0)
-    for machine, duration in machines.items():
+    for machine, duration in list(machines.items()):
         duration.check_in_remaining(time_total)
         total_duration += duration.duration
     

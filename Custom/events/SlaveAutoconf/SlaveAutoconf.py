@@ -41,10 +41,10 @@ class ConfigSlaveEventListener (DeadlineEventListener):
         if not slavename.lower().startswith(SLAVE_NAME_PREFIX):
             return
 
-        print("Slave automatic configuration for {0}".format(slavename))
+        print(("Slave automatic configuration for {0}".format(slavename)))
         for pool in POOLS:
             try:
-                print("\tAdding pool {0}".format(pool))
+                print(("\tAdding pool {0}".format(pool)))
                 RepositoryUtils.AddPoolToSlave(slavename, pool)
 
                 # Power management example:

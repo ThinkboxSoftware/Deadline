@@ -167,7 +167,7 @@ def PrintJobTaskTimes(TaskList):
         if "TaskId" in TaskDict:
             TaskID = "%d" % TaskDict["TaskId"]
         
-        print("%s: %s (%s)" % (TaskID, TaskDict["TaskRenderTime"], TaskDict["TaskStatus"]))
+        print(("%s: %s (%s)" % (TaskID, TaskDict["TaskRenderTime"], TaskDict["TaskStatus"])))
 
     
 # ======== Main Entry Point ========
@@ -175,7 +175,7 @@ def __main__(jobId):
     
     job = RepositoryUtils.GetJob(jobId, True)
     if (not job):
-        print("The specified Job ID was not found: %s" % jobId)
+        print(("The specified Job ID was not found: %s" % jobId))
         exit
     
     call_deadline = subprocess.Popen([DEADLINECOMMAND_FULLPATH, 'GetJobTasks', jobId], stdout=subprocess.PIPE)

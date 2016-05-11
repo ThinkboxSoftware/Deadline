@@ -37,7 +37,7 @@ def __main__():
         else:
             group_name = group["off"]
 
-        print("Using {0}. Tested if the time was between {1} and {2}.".format(group_name, time_start, time_end))
+        print(("Using {0}. Tested if the time was between {1} and {2}.".format(group_name, time_start, time_end)))
 
         for hostname in group["hosts"]:
             slave = RepositoryUtils.GetSlaveSettings(hostname, True)
@@ -53,9 +53,9 @@ def __main__():
             
             try:
                 RepositoryUtils.SaveSlaveSettings(slave)
-                print("Slave '{0}' group updated.".format(hostname))
+                print(("Slave '{0}' group updated.".format(hostname)))
             except Exception as e:
-                print("Slave '{0}' failed to update. {1}.".format(hostname, e.message.capitalize()))
+                print(("Slave '{0}' failed to update. {1}.".format(hostname, e.message.capitalize())))
 
 
 def remove_item(list, item):

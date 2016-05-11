@@ -76,7 +76,7 @@ for line in original:
         new.write(line)
 
 # Closes all rest of files
-for key, value in files.iteritems():
+for key, value in list(files.items()):
     if value is not None:
         value.close()
 

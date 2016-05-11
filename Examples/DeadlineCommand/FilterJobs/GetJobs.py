@@ -27,4 +27,4 @@ def __main__(*args):
             print("Skipped by status")
             continue
     
-        print('Job: {0} ({1})'.format(job.JobName, job.JobId))
+        print(('Job: {0} ({1})'.format(job.JobName, job.JobId)))

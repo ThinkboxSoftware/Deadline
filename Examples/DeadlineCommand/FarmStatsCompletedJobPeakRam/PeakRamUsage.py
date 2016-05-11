@@ -18,6 +18,6 @@ def __main__():
         stats = JobUtils.CalculateJobStatistics(job, tasks)
 
         jobPeakRamUsage = stats.PeakRamUsage / 1024 / 1024
-        print("JobPeakRamUsage: %sMb" % jobPeakRamUsage)
+        print(("JobPeakRamUsage: %sMb" % jobPeakRamUsage))
 
     print("...Script Completed")

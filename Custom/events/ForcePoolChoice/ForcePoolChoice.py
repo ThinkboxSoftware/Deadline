@@ -33,12 +33,12 @@ class PluginListener(DeadlineEventListener):
         default_group = ''
 
         if verbose:
-            print("Found these user groups for {0}: {1}.".format(user, ','.join(user_groups)))
+            print(("Found these user groups for {0}: {1}.".format(user, ','.join(user_groups))))
 
         if job.JobPool not in user_groups:
             if verbose:
-                print("Job's pool name does not match any of {0}'s group names.".format(user))
-                print("Setting pool to '{0}'.".format(default_group))
+                print(("Job's pool name does not match any of {0}'s group names.".format(user)))
+                print(("Setting pool to '{0}'.".format(default_group)))
             job.JobPool = default_group
         
         if secondary_pool is not '':

@@ -28,4 +28,4 @@ def __main__():
     for slaveInfo in slaveInfos:
         state = stateMapping[slaveInfo.SlaveState]
     
-        print("{0: <30}{1}".format(slaveInfo.SlaveName, state))
+        print(("{0: <30}{1}".format(slaveInfo.SlaveName, state)))

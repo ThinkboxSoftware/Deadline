@@ -21,6 +21,6 @@ def __main__(deadlinePlugin):
 
     ClientUtils.LogText("Adding enviornment variables to Maya job")
 
-    for k, v in environment.items():
+    for k, v in list(environment.items()):
         ClientUtils.LogText(" {0}={1}".format(k, v))
         deadlinePlugin.SetProcessEnvironmentVariable(k, v)

@@ -50,6 +50,6 @@ class JobEventListener (DeadlineEventListener):
 
         if not priviledged and job.JobPriority > priority:
             job.JobPriority = priority
-            print("Job priority downgraded to {0}. See someone in the {1} group for assistance".format(priority, group))
+            print(("Job priority downgraded to {0}. See someone in the {1} group for assistance".format(priority, group)))
 
         RepositoryUtils.SaveJob(job)

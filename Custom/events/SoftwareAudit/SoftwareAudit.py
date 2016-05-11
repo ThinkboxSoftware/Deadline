@@ -10,7 +10,7 @@ from System import TimeSpan
 from Deadline.Events import *
 from Deadline.Scripting import *
 
-import _winreg
+import winreg
 
 
 def GetDeadlineEventListener():
@@ -39,28 +39,28 @@ class ConfigSlaveEventListener (DeadlineEventListener):
     def GetVersion(self, software_title):
         try:
             i = 0
-            explorer = _winreg.OpenKey(
-                _winreg.HKEY_LOCAL_MACHINE,
+            explorer = winreg.OpenKey(
+                winreg.HKEY_LOCAL_MACHINE,
                 'SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall'
             )
 
             while True:
-                key = _winreg.EnumKey(explorer, i)
+                key = winreg.EnumKey(explorer, i)
                 if software_title in key:
-                    print('Found "{0}" in the list of installed software'.format(key))
+                    print(('Found "{0}" in the list of installed software'.format(key)))
                 
-                    item = _winreg.OpenKey(explorer, key)
-                    version, type = _winreg.QueryValueEx(item, 'DisplayVersion')
-                    print(' It\'s version was {0}'.format(version))
-                    _winreg.CloseKey(item)
+                    item = winreg.OpenKey(explorer, key)
+                    version, type = winreg.QueryValueEx(item, 'DisplayVersion')
+                    print((' It\'s version was {0}'.format(version)))
+                    winreg.CloseKey(item)
 
-                    _winreg.CloseKey(explorer)
+                    winreg.CloseKey(explorer)
                     return version
                 i += 1
 
         except WindowsError as e:
             print(e)
 
-        _winreg.CloseKey(explorer)
+        winreg.CloseKey(explorer)
 
         return "unknown"
