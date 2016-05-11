@@ -50,12 +50,12 @@ def main(argv):
                 r" If Global, all jobs and slaves will trigger the events for this plugin. "
                 r"If Opt-In, jobs and slaves can choose to trigger the events for this plugin. "
                 r"If Disabled, no events are triggered for this plugin.\n"
-                )
+            )
 
             # Do a find-replace to swap out the old with the new
             contentTuple = re.subn(find, replace, content, flags=re.S)
 
-            #Break out the tuple we got back
+            # Break out the tuple we got back
             content = contentTuple[0]
             foundCount = contentTuple[1]
 
@@ -76,7 +76,9 @@ def main(argv):
                 print("%s converted successfully" % pluginName)
             else:
                 if foundCount == 0:
-                    print("%s failed to convert - .param file doesn't match Deadline 7 style" % pluginName)
+                    print(
+                        "%s failed to convert - .param file doesn't match Deadline 7 style" %
+                        pluginName)
                 else:
                     print("%s failed to convert" % pluginName)
 
