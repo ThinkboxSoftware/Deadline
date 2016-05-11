@@ -28,6 +28,7 @@ def CleanupDeadlineEventListener(eventListener):
 #  Priority clamp event listener class.
 ###############################################################
 class JobEventListener (DeadlineEventListener):
+
     def __init__(self):
         self.OnJobSubmittedCallback += self.OnJobSubmitted
 
@@ -38,7 +39,7 @@ class JobEventListener (DeadlineEventListener):
     def OnJobSubmitted(self, job):
         user = job.JobUserName
         priviledged = False
-        
+
         limit = self.GetIntegerConfigEntry("Limit")
         usergroup = self.GetConfigEntry("UserGroups")
 
@@ -48,8 +49,11 @@ class JobEventListener (DeadlineEventListener):
             if group == usergroup:
                 priviledged = True
 
-        if not priviledged and (job.MachineLimit > limit or job.MachineLimit == 0 ):
+        if not priviledged and (job.MachineLimit > limit or job.MachineLimit == 0):
             job.MachineLimit = limit
-            print("Job machine limit downgraded to {0}. See someone in the {1} group for assistance".format(limit, group))
+            print(
+                "Job machine limit downgraded to {0}. See someone in the {1} group for assistance".format(
+                    limit,
+                    group))
 
         RepositoryUtils.SaveJob(job)
