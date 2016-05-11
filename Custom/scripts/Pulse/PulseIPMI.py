@@ -27,7 +27,8 @@ from Deadline.Scripting import *
 ########################################################################
 USERNAME = "root"
 PASSWORD = "calvin"
-IPMIExec = "C:/Program Files (x86)/sourceforge/ipmiutil/ipmiutil.exe"  # replace with "../ipmitool" depending on your hardware being used
+# replace with "../ipmitool" depending on your hardware being used
+IPMIExec = "C:/Program Files (x86)/sourceforge/ipmiutil/ipmiutil.exe"
 DataIP = "10.2.1."
 MgmtIP = "10.2.16."
 
@@ -59,15 +60,17 @@ def __main__(*args):
             args = "-H %s -U %s -P %s chassis power off" % (SLAVE_IP, USERNAME, PASSWORD)
         else:
             args = "-H %s -U %s -P %s chassis power reset" % (SLAVE_IP, USERNAME, PASSWORD)
-            # args = "reset -u -N %s -U %s -P %s" % (SLAVE_IP, USERNAME, PASSWORD ) #different syntax if your using "../ipmiutil" instead of "../ipmitool"
+            # args = "reset -u -N %s -U %s -P %s" % (SLAVE_IP, USERNAME, PASSWORD )
+            # #different syntax if your using "../ipmiutil" instead of "../ipmitool"
 
         print "arguments: %s" % args
 
         if File.Exists(IPMIExec):
-            process = ProcessUtils.SpawnProcess(IPMIExec, args, None, ProcessWindowStyle.Hidden, True)
+            process = ProcessUtils.SpawnProcess(
+                IPMIExec, args, None, ProcessWindowStyle.Hidden, True)
             ProcessUtils.WaitForExit(process, -1)  # Wait for IPMI process to exit before continuing
 
-            if process.StandardOutput != None:
+            if process.StandardOutput is not None:
                 output = process.StandardOutput.ReadToEnd()
                 print "%s" % output
             else:
@@ -77,7 +80,8 @@ def __main__(*args):
             print "Missing IPMI Exec: %s could not be found!" % IPMIExec
             return
 
-        # Slowdown IPMI commands so not too many requests are made through the same chassis backboard at once!
+        # Slowdown IPMI commands so not too many requests are made through the
+        # same chassis backboard at once!
         time.sleep(10)
 
     else:
