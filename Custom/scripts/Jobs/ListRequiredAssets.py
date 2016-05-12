@@ -21,4 +21,3 @@ def __main__():
                 print(RequiredAsset)
         else:
             print("Job does not contain any Required Assets")
-
