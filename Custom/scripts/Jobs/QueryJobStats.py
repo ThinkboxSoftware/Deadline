@@ -24,5 +24,5 @@ def __main__():
         timeSpan = "%02dd:%02dh:%02dm:%02ds" % (
             timeSpan.Days, timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds)
 
-        print "JobAverageFrameRenderTime: %s" % timeSpan
-        print "JobPeakRamUsage: %sMb" % jobPeakRamUsage
+        print("JobAverageFrameRenderTime: %s" % timeSpan)
+        print("JobPeakRamUsage: %sMb" % jobPeakRamUsage)

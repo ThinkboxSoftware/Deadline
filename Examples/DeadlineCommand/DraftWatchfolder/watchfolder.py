@@ -94,7 +94,7 @@ def SubmitJobs(file1, file2):
     """
     Wrapper for CallDeadlineCommand to make creating jobs simpler
     """
-    print CallDeadlineCommand([file1, file2])
+    print(CallDeadlineCommand([file1, file2]))
 
 
 def GetCurrentUserHomeDirectory():

@@ -11,13 +11,13 @@ def __main__():
 
     for job in jobs:
         RequiredAssets = job.JobRequiredAssets
-
-        print "JobName: %s" % job.JobName
-        print "JobID: %s" % job.JobId
-        print "Number of Required Assets: %s" % len(RequiredAssets)
+        
+        print("JobName: %s" % job.JobName)
+        print("JobID: %s" % job.JobId)
+        print("Number of Required Assets: %s" % len(RequiredAssets))
 
         if len(RequiredAssets) > 0:
             for RequiredAsset in RequiredAssets:
-                print RequiredAsset
+                print(RequiredAsset)
         else:
-            print "Job does not contain any Required Assets"
+            print("Job does not contain any Required Assets")
