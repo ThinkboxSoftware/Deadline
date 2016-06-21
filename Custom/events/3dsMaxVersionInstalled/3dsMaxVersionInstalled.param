@@ -1,11 +1,9 @@
-[Enabled]
-Type=boolean
-Category=Options
-CategoryOrder=0
-CategoryIndex=0
-Label=Enabled
-Default=false
-Description=If this event plugin is enabled.
+[State]
+Type=Enum
+Items=Global Enabled;Opt-In;Disabled
+Label=State
+Default=Disabled
+Description=How this event plug-in should respond to events. If Global, all jobs and slaves will trigger the events for this plugin. If Opt-In, jobs and slaves can choose to trigger the events for this plugin. If Disabled, no events are triggered for this plugin.
 
 [MaxVersions]
 Type=multilinemultifilename
