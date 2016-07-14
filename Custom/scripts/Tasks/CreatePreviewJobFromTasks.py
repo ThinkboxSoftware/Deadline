@@ -82,7 +82,7 @@ def DuplicateJobProperties(originalJob, jobInfoFile, pluginInfoFile, replaceDict
 
         # Loop through the JobExtraInfoKeys
         for key in originalJob.GetJobExtraInfoKeys():
-            value = originalJob.GetJobInfoKeyValue(key)
+            value = originalJob.GetJobExtraInfoKeyValue(key)
 
             if key in replaceDict:
                 fileHandle.write("%s=%s\n" % (key, replaceDict[key]))
