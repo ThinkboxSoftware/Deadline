@@ -1,0 +1,303 @@
+[State]
+Type=Enum
+Items=Global Enabled;Opt-In;Disabled
+Category=General Settings
+CategoryOrder=0
+Index=0
+Label=State
+Default=Global Enabled
+Description=How this event plug-in should respond to events. If Global, all jobs and slaves will trigger the events for this plugin. If Opt-In, jobs and slaves can choose to trigger the events for this plugin. If Disabled, no events are triggered for this plugin.
+
+[Verbose]
+Type=boolean
+Category=General Settings
+CategoryOrder=0
+Index=1
+Label=Verbose Logging
+Default=False
+Description=If logging should be verbose.
+
+[ZabbixURL]
+Type=string
+Category=Zabbix Connection Settings
+CategoryOrder=1
+Index=0
+Label=Server URL
+Default=
+Description=The URL for your Zabbix server.
+
+[ZabbixHostName]
+Type=string
+Category=Zabbix Connection Settings
+CategoryOrder=1
+Index=1
+Label=Host Name or IP Address
+Default=
+Description=The host name or IP address of your Zabbix server.
+
+[ZabbixPort]
+Type=integer
+Minimum=1024
+Maximum=65535
+Category=Zabbix Connection Settings
+CategoryOrder=1
+Label=Port
+Index=2
+Default=10051
+Description=The port used to connect to your Zabbix server.
+
+[ZabbixHosts]
+Type=multilinestring
+Category=Zabbix Connection Settings
+CategoryOrder=1
+Index=3
+Label=Hosts
+Default=
+Description=The hosts that the items and graphs will be created for (one per line).
+
+[ZabbixUser]
+Type=string
+Category=Zabbix Connection Settings
+CategoryOrder=1
+Index=4
+Label=User Name
+Default=
+Description=The user name used to connect to your Zabbix server.
+
+[ZabbixPassword]
+Type=password
+Category=Zabbix Connection Settings
+CategoryOrder=1
+Index=4
+Label=Password
+Default=
+Description=The password used to connect to your Zabbix server.
+
+[SlaveRegions]
+Type=multilinestring
+Category=Slave Statistics Settings
+CategoryOrder=2
+Index=0
+Label=Slave Regions
+Default=
+Description=The regions that slave statistics will be generated for (one per line).
+
+[SlaveRegionInExtraInfo]
+Type=Boolean
+Category=Slave Statistics Settings
+CategoryOrder=2
+Index=1
+Label=Get Region From Extra Info
+Default=False
+Description=If enabled, the slave region will be pulled from the specified extra info setting below, instead of the slave's Region property.
+
+[SlaveExtraInfoWithRegion]
+Type=integer
+Minimum=0
+Maximum=9
+Category=Slave Statistics Settings
+CategoryOrder=2
+Label=Region Extra Info Index
+Index=2
+Default=0
+Description=The index of the extra info setting in the slave settings that stores the region name.
+
+[JobProjects]
+Type=multilinestring
+Category=Project Statistics Settings
+CategoryOrder=3
+Index=0
+Label=Project Names
+Default=
+Description=The names of the projects that the project statistics will be generated for (one per line).
+
+[JobExtraInfoWithProject]
+Type=integer
+Minimum=0
+Maximum=9
+Category=Project Statistics Settings
+CategoryOrder=3
+Label=Project Extra Info Index
+Index=1
+Default=0
+Description=The index of the extra info setting in the job properties that stores the project name.
+
+[SlaveAvailableGraphName]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=3
+Label=Slave Availability Graph Name
+Default=Availability Summary
+Description=The name of the graph that shows the Slave Availability statistics.
+
+[SlaveActiveGraphName]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=4
+Label=Slave Activity Graph Name
+Default=Activity Summary
+Description=The name of the graph that shows the Slave Activity statistics.
+
+[SlaveTotalItemKey]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=5
+Label=Total Slaves Item Key
+Default=slave_total
+Description=The key for the Total Slaves item.
+
+[SlaveTotalItemKey]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=6
+Label=Total Slaves Item Name
+Default=Total Nodes
+Description=The name for the Total Slaves item.
+
+[SlaveTotalAvailableItemKey]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=7
+Label=Available Slaves Item Key
+Default=slave_availability_total
+Description=The key for the Available Slaves item.
+
+[SlaveTotalAvailableItemName]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=8
+Label=Available Slaves Item Name
+Default=Available Nodes
+Description=The name for the Available Slaves item.
+
+[SlaveTotalMissingItemKey]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=9
+Label=Missing Slaves Item Key
+Default=slave_missing_total
+Description=The key for the Missing Slaves item.
+
+[SlaveTotalMissingItemName]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=10
+Label=Missing Slaves Item Name
+Default=Missing Nodes
+Description=The name for the Missing Slaves item.
+
+[SlaveTotalActiveItemKey]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=11
+Label=Active Slaves Item Key
+Default=slave_active_total
+Description=The key for the Active Slaves item.
+
+[SlaveTotalActiveItemName]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=12
+Label=Active Slaves Item Name
+Default=Active Nodes
+Description=The name for the Active Slaves item.
+
+[SlaveTotalIdleItemKey]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=13
+Label=Idle Slaves Item Key
+Default=slave_idle_total
+Description=The key for the Idle Slaves item.
+
+[SlaveTotalIdleItemName]
+Type=string
+Category=Slave Item and Graph Settings
+CategoryOrder=4
+Index=14
+Label=Idle Slaves Item Name
+Default=Total Nodes
+Description=The name for the Idle Slaves item.
+
+[JobProjectGraphName]
+Type=string
+Category=Project Item and Graph Settings Settings
+CategoryOrder=5
+Index=0
+Label=Project Graph Name
+Default=Farm Project Usage Percentages
+Description=The name of the graph that shows the Project statistics.
+
+[JobProjectItemKey]
+Type=string
+Category=Project Item and Graph Settings Settings
+CategoryOrder=5
+Index=1
+Label=Active Project Item Key
+Default=project_active
+Description=The key for the Active Project item.
+
+[JobProjectItemName]
+Type=string
+Category=Project Item and Graph Settings Settings
+CategoryOrder=5
+Index=2
+Label=Active Project Item Name
+Default=Active
+Description=The name for the Active Project item.
+
+[JobProjectUsageItemKey]
+Type=string
+Category=Project Item and Graph Settings Settings
+CategoryOrder=5
+Index=3
+Label=Project Usage Item Key
+Default=project_usage
+Description=The key for the Project Usage item.
+
+[JobProjectUsageItemName]
+Type=string
+Category=Project Item and Graph Settings Settings
+CategoryOrder=5
+Index=4
+Label=Project Usage Item Name
+Default=% Used
+Description=The name for the Project Usage item.
+
+[PluginGraphName]
+Type=string
+Category=Plugin Item and Graph Settings Settings
+CategoryOrder=6
+Index=0
+Label=Plugin Graph Name
+Default=Farm Application Usage
+Description=The name of the graph that shows the Plugin statistics.
+
+[PluginUsageItemKey]
+Type=string
+Category=Plugin Item and Graph Settings Settings
+CategoryOrder=6
+Index=1
+Label=Plugin Usage Item Key
+Default=plugin_usage
+Description=The key for the Plugin Usage item.
+
+[PluginUsageItemName]
+Type=string
+Category=Plugin Item and Graph Settings Settings
+CategoryOrder=6
+Index=2
+Label=Plugin Usage Item Name
+Default=Active Nodes
+Description=The name for the Plugin Usage item.
