@@ -1,0 +1,4 @@
+﻿About=Command Line support for Deadline
+ConcurrentTasks=True
+
+RenderExecutable=K:/development/tools/celaction/v3.888/CelAction2D.exe;C:\Program Files (x86)\CelAction\CelAction2D.exe
