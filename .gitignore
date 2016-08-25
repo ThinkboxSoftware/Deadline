@@ -4,5 +4,8 @@ obj
 *.pyc
 .DS_Store
 
+# Vagrant
+.vagrant
+
 # mstest test results
 TestResults
