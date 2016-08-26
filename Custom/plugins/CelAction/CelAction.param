@@ -1,0 +1,8 @@
+[RenderExecutable]
+Type=multilinemultifilename
+Category=Render Executables
+CategoryOrder=0
+CategoryIndex=2
+Label=CelAction Render Executable
+Default=C:\Program Files (x86)\CelAction\CelAction2D.exe
+Description=The path to the CelAction executable file used for rendering. Enter alternative paths on separate lines.
