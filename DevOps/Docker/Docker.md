@@ -1,4 +1,4 @@
-# Dockerizing Deadline #
+# Docker #
 
 In this section we provide basic Dockerfiles to promote the understanding of running Deadline components in
 Docker containers. These examples are written for local experimentation using Docker Toolbox rather than for
