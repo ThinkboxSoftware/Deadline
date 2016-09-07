@@ -17,8 +17,9 @@ import subprocess
 import traceback
 import shlex
 
-SLAVE_NAME_PREFIX = "mobile-"
-POOLS = ["one", "two", "three"]
+SLAVE_NAME_PREFIX = "" # Example: "mobile-"
+POOLS = [] # Example: ["one", "two", "three"]
+LISTENING_PORT=None # or 27100
 
 
 def GetDeadlineEventListener():
@@ -38,13 +39,19 @@ class ConfigSlaveEventListener (DeadlineEventListener):
 
     # This is called every time the Slave starts
     def OnSlaveStarted(self, slavename):
+        # Load slave settings for when we needed
+        slave = RepositoryUtils.GetSlaveSettings(slavename, True)
+
+        # Skip over Slaves that don't match the prefix
         if not slavename.lower().startswith(SLAVE_NAME_PREFIX):
             return
 
         print("Slave automatic configuration for {0}".format(slavename))
+
+        # Set up the Pools we want to use
         for pool in POOLS:
             try:
-                print("\tAdding pool {0}".format(pool))
+                print("   Adding pool {0}".format(pool))
                 RepositoryUtils.AddPoolToSlave(slavename, pool)
 
                 # Power management example:
@@ -53,3 +60,15 @@ class ConfigSlaveEventListener (DeadlineEventListener):
 
             except:
                 ClientUtils.LogText(traceback.format_exc())
+
+        # Set up the listening port
+        if LISTENING_PORT:
+            print("   Configuring Slave to listen on port {0}".format(LISTENING_PORT))
+            slave.SlaveListeningPort = LISTENING_PORT
+            slave.SlaveOverrideListeningPort = True
+        else:
+            print("   Configuring Slave to use random listening port".format(LISTENING_PORT))
+            slave.SlaveOverrideListeningPort = False
+
+        # Save any changes we've made back to the database
+        RepositoryUtils.SaveSlaveSettings(slave)
