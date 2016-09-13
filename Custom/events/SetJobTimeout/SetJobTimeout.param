@@ -1,0 +1,28 @@
+[State]
+Type=Enum
+Items=Global Enabled;Opt-In;Disabled
+Label=State
+Default=Disabled
+Description=How this event plug-in should respond to events. If Global, all jobs and slaves will trigger the events for this plugin. If Opt-In, jobs and slaves can choose to trigger the events for this plugin. If Disabled, no events are triggered for this plugin.
+
+[MaxMinute]
+Type=integer
+Category=Options
+CategoryOrder=0
+CategoryIndex=1
+Label=Maximum render time
+Default=0
+Description=Maximum number of minutes a task is allowed to render for before it is considered an error and requeued
+Maximum=43200
+Minimum=0
+
+[MinMinute]
+Type=integer
+Category=Options
+CategoryOrder=0
+CategoryIndex=2
+Label=Minimum render time
+Default=0
+Description=Minimum number of minutes a task is allowed to render for before it is considered an error and requeued.
+Maximum=43200
+Minimum=0
