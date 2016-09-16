@@ -2,7 +2,7 @@
 # -*- coding: utf-8
 # Copyright 2014 Klimenko Artyem <aklim007(at)gmail(dot)com>
 # Based on work by Rob Cherry <zsend(at)lxrb(dot)com>
-# > Based on work by Enrico Tröger <enrico(dot)troeger(at)uvena(dot)de>
+# > Based on work by Enrico Trï¿½ger <enrico(dot)troeger(at)uvena(dot)de>
 # License: GNU GPLv2
 
 
@@ -39,8 +39,8 @@ class ZSend:
 
     def print_vals(self):
         for elem in self.list:
-            print u'{0}'.format(elem)
-        print u'Count: {0}'.format(len(self.list))
+            print( u'{0}'.format(elem) )
+        print( u'Count: {0}'.format(len(self.list)) )
 
     def build_all(self):
         send_data = {
