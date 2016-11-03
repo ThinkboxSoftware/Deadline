@@ -33,5 +33,3 @@ If you would like to share your techniques for accessing NFS, SMB, and other fil
 contribute by issuing a pull request against this document.
 
 
-
-Back to [Advanced Examples](README.md).
