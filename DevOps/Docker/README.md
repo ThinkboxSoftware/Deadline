@@ -13,23 +13,11 @@ new to Docker it's strongly recommended that you work through the
 
 ## Basic Dockerfiles ##
 
-The [Basic Dockerfiles](BasicDockerfiles/README.md) section provides a set of simple Dockerfiles for various 
+The [Basic Dockerfiles](BasicDockerfiles) folder provides a set of simple Dockerfiles for various 
 combinations of base images and Deadline versions.  If you are new to Docker containers, this is a good place to start. 
 
 ## Advanced Examples ##
 
-The [Advanced Examples](AdvancedExamples.md) section provides information on more advanced concepts like init systems 
+The [Advanced Examples](AdvancedExamples) folder provides information on more advanced concepts like init systems 
 for containers and using network shares.  
-
-
-## More Info ##
-
-Questions or comments about these examples?  Visit our support forum at http://forums.thinkboxsoftware.com and post your 
-comment or question.
-
-As with all of our examples, we encourage corrections and suggestions for improvements. Feel free to issue a 
-[Pull Request](https://help.github.com/articles/using-pull-requests/)!
-
-
-Back to [DevOps](../README.md).
 

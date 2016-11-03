@@ -135,15 +135,7 @@ run Slave (or whichever Deadline client program), or use a script as the entrypo
 indicating which client program to start up.  The script could then write the deadline.ini file and then finally call 
 Launcher.
 
-Additionally, as mentioned in the [Prerequisites](../../README.md), it may make sense to use an init system for the 
-container for greater stability of long-running containers.
+Additionally, it may make sense to [use an init system](../AdvancedExamples/InitSystem.md) for the container for 
+greater stability of long-running containers.
 
-## More Info ##
-
-Questions or comments about these examples?  Visit our support forum at http://forums.thinkboxsoftware.com and post your 
-comment or question.
-
-As with all of our examples, we encourage corrections and suggestions for improvements. Feel free to issue a 
-[Pull Request](https://help.github.com/articles/using-pull-requests/)!
-
- 
+:octocat:
