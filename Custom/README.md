@@ -8,4 +8,4 @@ in "[*repo*]/custom/[*something*]". We're following the same convention here to
 keep things organized, so feel free to download something and drop it into
 your farm.
 
-Back to the [top level README](../README.md).
+Back to the [top level](..).
