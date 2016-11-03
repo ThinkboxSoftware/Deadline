@@ -4,8 +4,8 @@ This section contains various examples for using Deadline with DevOps tools such
 information is available in each subfolder.
 
 
-* [Go to the Docker section.](Docker/Docker.md)
-* [Go to the Vagrant section.](Vagrant/Vagrant.md)
+* [Go to the Docker section.](Docker)
+* [Go to the Vagrant section.](Vagrant)
 
 
 Note:  The examples in this section are meant to work with Deadline 7 or later, however not every possible combination 
