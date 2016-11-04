@@ -11,16 +11,16 @@ RUN apt-get update && apt-get install -y libgl1-mesa-glx libglib2.0-0
 
 # Copy over the installer.
 # 2. Be sure the installer .run file has been placed in the same folder as the Dockerfile.
-RUN mkdir /thinkboxsetup/
-COPY DeadlineClient-7.*-linux-x64-installer.run /thinkboxsetup/
+RUN mkdir /tmp/thinkboxsetup/
+COPY DeadlineClient-7.*-linux-x64-installer.run /tmp/thinkboxsetup/
 
 # Run the installer.
 # 3. Replace the name of the license server after --licenseserver below with that of your actual license server.
-RUN /thinkboxsetup/DeadlineClient-7.*-linux-x64-installer.run \
+RUN /tmp/thinkboxsetup/DeadlineClient-7.*-linux-x64-installer.run \
     --mode unattended \
     --unattendedmodeui minimal \ 
     --repositorydir /mnt/DeadlineRepository7 \ 
-    --licenseserver @lic_thinkbox \ 
+    --licenseserver @lic-thinkbox \ 
     --noguimode true \ 
     --restartstalled true 
 
