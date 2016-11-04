@@ -4,3 +4,5 @@ Here you will find a wide variety of scripts and information to help with admini
 
 
 Back to the [top level](https://github.com/ThinkboxSoftware/Deadline).
+
+![End](../thinkbox_tiny.png)

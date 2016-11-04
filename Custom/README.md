@@ -9,3 +9,5 @@ keep things organized, so feel free to download something and drop it into
 your farm.
 
 Back to the [top level](https://github.com/ThinkboxSoftware/Deadline).
+
+![End](../thinkbox_tiny.png)

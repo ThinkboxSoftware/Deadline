@@ -6,3 +6,5 @@ Here you find various additional helpful scripts and registry entries for instal
 Deadline versions.
 
 Back to the [top level](https://github.com/ThinkboxSoftware/Deadline).
+
+![End](../thinkbox_tiny.png)
