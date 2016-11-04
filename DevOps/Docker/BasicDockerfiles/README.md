@@ -40,12 +40,12 @@ file structure.
 
 For the database, as long as the container has access to the IP address and port of the database, nothing further is 
 required.  In most cases, containers have the same access to IPs as the Docker host on which they are running, so 
-nothing special is needed beyond specifying the correct hostname (or IP) and port when configuring Deadline.
+nothing special is needed beyond specifying the correct IP (or hostname) and port when configuring Deadline.
 
 For the Repository file structure, some additional steps are needed.  While it is possible to install NFS or SMB 
-clients into the container, it can be tricky.  The more common approach is to mount the share on the Docker host 
-(such as your workstation, laptop, are a dedicated server), and then make that share accessible to a container by using 
-the Docker ```-v``` volume command.  In order to keep the basic Dockerfile examples concise, they assume that the 
+clients into the container, it can be tricky.  The more common approach is to mount the Repository share on the Docker 
+host (such as your workstation, laptop, are a dedicated server), and then make that share accessible to a container by 
+using the Docker ```-v``` volume option.  In order to keep the basic Dockerfile examples concise, they assume that the 
 volume command is being used to make the Repository file structure visible to the container.  However, this approach 
 comes with some caveats.      
 
@@ -55,14 +55,14 @@ network share on the host, then the Docker volume command should allow a contain
 However, when Docker is running on Windows or OSX via Docker Toolbox, the Docker host is a VirtualBox VM.  Docker 
 configures this host VM to auto-mount ```C:\Users``` (Windows) or ```/Users``` (OSX) as ```/c/Users``` on the Docker 
 host VM.  This means that the test Repository will need to be installed beneath ```C:\Users``` or ```/Users``` to be 
-made visible to containers via the Docker volume command.  As a result, it's recommend to install the test Repository 
+made visible to containers via the Docker volume command.  As a result, it is recommend to install the test Repository 
 in your home folder, for example, into ```C:\Users\James\DeadlineRepository8```.
 
 
 ### Interactive Session ###
 
 When testing out a new container image, it's often useful to interactively run a container based on the image and make 
-sure it behaves as expected by manually executing commands and observing the result.  Assuming the example Docker file 
+sure it behaves as expected by manually executing commands and observing the result.  Assuming the example Dockerfile 
 in the ```centos7_client8``` folder was built and tagged as ```centos7/deadline_client:8.0```, here is a sample command 
 to run an interactive session:
 
@@ -143,4 +143,4 @@ Additionally, it may make sense to [use an init system](../AdvancedExamples/Init
 greater stability of long-running containers.
 
 
-:octocat:
+![End](../../../thinkbox_tiny.png)

@@ -13,3 +13,5 @@ is tested.  If you find a problem, feel free to log an issue, submit a pull requ
 
 
 Back to the [top level](https://github.com/ThinkboxSoftware/Deadline).
+
+![End](../thinkbox_tiny.png)

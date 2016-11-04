@@ -32,4 +32,5 @@ One such plugin, called [Netshare](http://netshare.containx.io/) allows containe
 If you would like to share your techniques for accessing NFS, SMB, and other filesystem shares from containers, please 
 contribute by issuing a pull request against this document.
 
+![End](../../../thinkbox_tiny.png)
 

@@ -8,5 +8,6 @@ Here are the topics covered in this section:
 
 * [Using an Init System.](InitSystem.md)
 * [Reducing the image size.](ImageSize.md)
-* [Mounting network NFS/SMB shares from containers.](NfsSmb.md)
+* [Accessing network shares from containers.](NfsSmb.md)
 
+![End](../../../thinkbox_tiny.png)

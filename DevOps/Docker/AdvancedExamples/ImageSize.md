@@ -53,4 +53,4 @@ file to be pulled down from the server.  ```wget``` provides advanced options to
 those options are beyond the scope of this document.  (But 
 [here is a handy set of examples](http://www.editcorp.com/personal/lars_appel/wget/v1/wget_7.html#SEC33)).
 
-:octocat:
+![End](../../../thinkbox_tiny.png)

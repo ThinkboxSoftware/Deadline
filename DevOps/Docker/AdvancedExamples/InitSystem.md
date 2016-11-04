@@ -10,3 +10,4 @@ an init system to your containers.  Here are some links you may find useful:
 [Phusion baseimage for Ubuntu](http://phusion.github.io/baseimage-docker/).
 * And there are other alternatives, such as [dumb-init](https://github.com/Yelp/dumb-init).
 
+![End](../../../thinkbox_tiny.png)
