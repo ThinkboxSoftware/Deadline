@@ -4,8 +4,15 @@ In this section we provide information to promote the understanding of running D
 [Docker containers](https://www.docker.com/).
 
 ## Prerequisites ###
-[Docker Toolbox](https://www.docker.com/products/docker-toolbox) is required for Windows or Mac, which includes 
-[Virtual Box](https://www.virtualbox.org/). For Linux, only Docker itself is needed. 
+
+### Linux ###
+
+* Only Docker itself is needed.
+
+### Windows and OSX ###
+
+* [Docker Toolbox](https://www.docker.com/products/docker-toolbox) is required for Windows and OSX, which includes 
+[Virtual Box](https://www.virtualbox.org/).
 
 These examples assume you have a basic understanding of using Docker and the Docker Quickstart Terminal.  If you are 
 new to Docker it's strongly recommended that you work through the 

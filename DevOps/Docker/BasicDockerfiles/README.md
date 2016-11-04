@@ -8,25 +8,27 @@ This brief guide will describe a general approach to using the basic ```Dockerfi
 
 ### Pre-Build Steps ###
 
-1. Place the Deadline installer run file next to the Dockerfile.
+1. **Install a test Deadline Repository under your User folder.**  More information about this is provided in the 
+Running Containers section below. 
 
-You should have received a download link for the Deadline Linux installers from Thinkbox Sales (e.g. 
-```Deadline-8.0.11.1-linux-installers.tar```).  Extract from this file the Linux installer .run file (e.g. 
-```DeadlineClient-8.0.11.1-linux-x64-installer.run```) and place it in the same folder as the Dockerfile.
+2. **Place the Deadline installer run file next to the Dockerfile.** You should have received a download link for the 
+Deadline Linux installers from Thinkbox Sales (e.g. ```Deadline-8.0.11.2-linux-installers.tar```).  Extract from this 
+file the Linux installer .run file (e.g. ```DeadlineClient-8.0.11.2-linux-x64-installer.run```) and place it in the 
+same folder as the Dockerfile.
 
-2. Customize the Dockerfile
-
-Within each Dockerfile are numbered comments that suggest parts of the Dockerfile that should be customized before 
-building the container image.  Make the necessary edits to the Dockerfile for your needs.
+3. **Customize the Dockerfile.**  Within each Dockerfile are numbered comments that suggest parts of the Dockerfile 
+that should be customized before building the container image.  Make the necessary edits to the Dockerfile for your 
+needs.
 
 ### Build the Image ###
 
-When building an image, a tag (or name) for the image should be specified.  The examples use the following naming 
-convention for image names, but you may use any convention that suits your needs:
+When building an image, a tag (or name) for the image should be specified.  In this documentation, the following  
+convention is used for for image names, but you may use any convention that suits your needs:
 
 [*NameOfOSandVersion*]/deadline_client:[*MajorVersion.MinorVersion*]
 
-Using this convention, to build the Centos 7 with Deadline 8 example, you could use this build command:
+Using this convention, to build the example Dockerfile in the ```centos7_client8``` folder (CentOS 7 with Deadline 8), 
+here's an example build command:
 
     docker build -t centos7/deadline_client:8.0 .
 
@@ -38,29 +40,31 @@ file structure.
 
 For the database, as long as the container has access to the IP address and port of the database, nothing further is 
 required.  In most cases, containers have the same access to IPs as the Docker host on which they are running, so 
-nothing special is needed. 
+nothing special is needed beyond specifying the correct hostname (or IP) and port when configuring Deadline.
 
-For the Repository file structure, some additional steps may be needed.  Containers can mount network shares if, 
-for example NFS and/or SMB client services are installed within the container.  Another option is to use the Docker 
-volume command to mount a folder on the Docker host through to the container.  In order to keep the basic Dockerfile 
-examples concise, they assume that the volume command is being used to make the Repository file structure visible to 
-the container.  However, this approach comes with some caveats.      
+For the Repository file structure, some additional steps are needed.  While it is possible to install NFS or SMB 
+clients into the container, it can be tricky.  The more common approach is to mount the share on the Docker host 
+(such as your workstation, laptop, are a dedicated server), and then make that share accessible to a container by using 
+the Docker ```-v``` volume command.  In order to keep the basic Dockerfile examples concise, they assume that the 
+volume command is being used to make the Repository file structure visible to the container.  However, this approach 
+comes with some caveats.      
 
 For Docker running on Linux, if the Repository exists in a local folder on the host, or has been mounted as a 
 network share on the host, then the Docker volume command should allow a container to mount that same folder.
 
 However, when Docker is running on Windows or OSX via Docker Toolbox, the Docker host is a VirtualBox VM.  Docker 
-configures this host VM to auto-mount ```C:\Users``` (Windows) or ```/Users``` (OSX).  These folders become 
-```/c/Users``` on the Docker host VM.  This means that the test Repository will need to be installed beneath these 
-folders to be made visible to containers via the Docker volume command. As a result, it's recommend to install the 
-test Repository in your home folder, for example, into ```C:\Users\James\DeadlineRepository8```.
+configures this host VM to auto-mount ```C:\Users``` (Windows) or ```/Users``` (OSX) as ```/c/Users``` on the Docker 
+host VM.  This means that the test Repository will need to be installed beneath ```C:\Users``` or ```/Users``` to be 
+made visible to containers via the Docker volume command.  As a result, it's recommend to install the test Repository 
+in your home folder, for example, into ```C:\Users\James\DeadlineRepository8```.
 
 
 ### Interactive Session ###
 
 When testing out a new container image, it's often useful to interactively run a container based on the image and make 
-sure it behaves as expected by manually executing commands and observing the result.  Again, using the CentOS 7 with 
-Deadline 8 combination, here is a sample command to run an interactive session:
+sure it behaves as expected by manually executing commands and observing the result.  Assuming the example Docker file 
+in the ```centos7_client8``` folder was built and tagged as ```centos7/deadline_client:8.0```, here is a sample command 
+to run an interactive session:
 
     docker run -ti --rm --name InteractiveTest -h interactivetest \
     -v /c/Users/James/DeadlineRepository8:/mnt/DeadlineRepository8 \
@@ -88,7 +92,7 @@ OS referenced in the base image of the container, you may need to use ```--entry
 The last parameter, ```centos7/deadline_client:8.0``` is simply the image on which the container will be based.
 
 
-The container should boot up almost instantly.  And once you are at the prompt, you could, for example, run 
+The container should start up almost instantly.  And once you are at the prompt, you could, for example, run 
 Deadline Slave with the following commands:
 
     cd /opt/Thinkbox/Deadline8/bin
@@ -137,5 +141,6 @@ Launcher.
 
 Additionally, it may make sense to [use an init system](../AdvancedExamples/InitSystem.md) for the container for 
 greater stability of long-running containers.
+
 
 :octocat:
