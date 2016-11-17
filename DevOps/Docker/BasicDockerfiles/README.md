@@ -99,48 +99,82 @@ Deadline Slave with the following commands:
     ./deadlineslave --nogui
 
 
-### Direct Session for Deadline Slave ###
+### Launching Client Programs ###
 
 Having tested your container with an interactive session, you are now ready to directly execute a target program when 
-the container starts.  The following command will run the Slave executable.  Be sure to alter the command to point to the path 
-to the repository folder, which should be visible to the Docker host.
+the container starts.  The following command will run the Slave executable.  Be sure to alter the command to point to 
+the path to the repository folder, which should be visible to the Docker host.
 
     docker run --rm --name dockerslave01 -h dockerslave01 \
     -v /c/Users/James/DeadlineRepository8:/mnt/DeadlineRepository8 \
-    --entrypoint deadlineslave \
-    centos7/deadline_client:8.0 -nogui 
+    --entrypoint /opt/Thinkbox/Deadline8/bin/deadlinelauncher \
+    centos7/deadline_client:8.0
 
 First, note the absence of the ``-ti`` option, since this is not an interactive terminal mode session.
+
+```--rm``` causes the container to be removed when it exits.  If you wish to examine the contents of a container after 
+ it has exited, then omit this option.
 
 ```--name dockerslave01``` names the running container "dockerslave01" for easy identification.
 
 ```-h dockerslave01``` causes the hostname of the running container to be dockerslave01.  This affects how the 
 containerized Slave will appear in Deadline Monitor. 
 
-```deadline_client/centos7:8.0``` is simply the tag of the image that we wish to instantiate as a running container.
+```deadline_client/centos7:8.0``` is the name of the image on which the running container will be based.
 
-```--entrypoint deadlineslave``` is the name of the executable and options to be run when the container starts.
+```--entrypoint /opt/Thinkbox/Deadline8/bin/deadlinelauncher``` is the name of the executable to be run when the 
+container starts.  This will cause Deadline Launcher to start which will then launch other client programs as specified 
+in the deadline.ini file. The installer parameters in the Dockerfile examples are such that 
+```LaunchSlaveAtStartup=true``` is set in the deadline.ini file, causing the Launcher to automatically start 
+Deadline Slave.
 
 ```centos7/deadline_client:8.0``` is the name of the image on which the container is based.
 
-```-nogui``` is a parameter to be passed to the deadlineslave executable.  Parameters to be passed to the executable 
-are placed after the image name.
 
-In general the same container image can be used to launch various Deadline client programs such as Pulse, Balancer, 
-etc., by changing the entrypoint and changing the parameters that get passed to the executable.
+In general, ```deadlinelauncher``` should be the entrypoint, and the client application (Slave, Balancer, Web Service, 
+etc.) to be started should be specified by the deadline.ini file.  See the 
+[Client Configuration](http://docs.thinkboxsoftware.com/products/deadline/8.0/1_User%20Manual/manual/client-config.html) 
+page in the Deadline User Manual and also 
+[this Deadline Feature Blog article](http://deadline.thinkboxsoftware.com/feature-blog/2016/10/28/redundancy-plans-are-redundant) 
+for more information.
 
-### Testing vs Production ###
+#### Detached ####
 
-In the prior example for a direct Slave session, the deadlineslave executable was used as the entrypoint.  While this is 
-good for general testing, in a production use case it may be preferable to instead use Deadline Launcher as the 
-entrypoint.  In this case, you may want to either add some build steps to the image to 
-[pre-configure Launcher](http://deadline.thinkboxsoftware.com/feature-blog/2016/10/28/redundancy-plans-are-redundant) to 
-run Slave (or whichever Deadline client program), or use a script as the entrypoint which could receive a parameter 
-indicating which client program to start up.  The script could then write the deadline.ini file and then finally call 
-Launcher.
+The example ```docker run``` command above runs the container in 
+[foreground](https://docs.docker.com/engine/reference/run/#foreground) mode which attaches the standard input, output, 
+and standard error of the root process in the container to the terminal from which it was launched.  This is good for 
+testing since the output can be directly inspected.  However, in practice it may be desireable to start the container 
+in [detached](https://docs.docker.com/engine/reference/run/#/detached--d) mode so that the terminal can be used for 
+other things.  To run the container detached, supply the ```-d``` option and *do not* supply the ```--rm``` option:
 
-Additionally, it may make sense to [use an init system](../AdvancedExamples/InitSystem.md) for the container for 
-greater stability of long-running containers.
+    docker run -d --name dockerslave01 -h dockerslave01 \
+    -v /c/Users/James/DeadlineRepository8:/mnt/DeadlineRepository8 \
+    --entrypoint /opt/Thinkbox/Deadline8/bin/deadlinelauncher \
+    centos7/deadline_client:8.0
 
+
+### Licensing ###
+
+It may be the case that the license server is hosted on a different network than that of the Docker host on which a 
+given container is running.  Rather than adding complex routing rules to your network it is easier and better practice 
+to simply tell the container where to find the license server.  This is can be done with the 
+
+    --add-host lic-thinkbox:192.168.4.28 \
+
+Where ```lic-thinkbox``` is the name of the license server as supplied to the Deadline installer inside the Dockerfile, 
+and ```192.168.4.28``` would be replaced with the actual IP address of the license server.  The full example run 
+command would then be:
+
+    docker run --rm --name dockerslave01 -h dockerslave01 \
+    -v /c/Users/James/DeadlineRepository8:/mnt/DeadlineRepository8 \
+    --add-host lic-thinkbox:192.168.4.28 \
+    --entrypoint /opt/Thinkbox/Deadline8/bin/deadlinelauncher \
+    centos7/deadline_client:8.0
+
+
+## Next Steps ##
+
+With an understanding of the basics of how to run Deadline client programs in containers, a good next step is to review 
+the [Advanced Examples](../AdvancedExamples/README.md).
 
 ![End](../../../thinkbox_tiny.png)
