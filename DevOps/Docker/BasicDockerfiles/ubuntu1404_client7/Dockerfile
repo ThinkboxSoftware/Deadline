@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 
 # 1. Use your own e-mail for the maintainer.
-MAINTAINER jamescoulter@thinkboxsoftware.com
+MAINTAINER yourname@yourcompany.com
 
 # Perform a general udpate of the OS.
 RUN apt-get update && apt-get -y upgrade

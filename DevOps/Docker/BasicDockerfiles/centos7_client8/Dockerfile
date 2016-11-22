@@ -1,7 +1,7 @@
 FROM centos:7
 
 # 1. Use your own e-mail for the maintainer.
-MAINTAINER jamescoulter@thinkboxsoftware.com
+MAINTAINER yourname@yourcompany.com
 
 # Perform a general update of the OS.
 RUN yum -y upgrade
