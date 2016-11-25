@@ -1,0 +1,35 @@
+[State]
+Type=Enum
+Items=Global Enabled;Opt-In;Disabled
+Label=State
+Default=Disabled
+Description=How this event plug-in should respond to events. If Global, all jobs and slaves will trigger the events for this plugin. If Opt-In, jobs and slaves can choose to trigger the events for this plugin. If Disabled, no events are triggered for this plugin.
+
+[DeleteDays]
+Type=integer
+Category=Cleanup Options
+CategoryOrder=1
+CategoryIndex=1
+Label=Delete Days
+Default=30
+Minimum=1
+Maximum=100
+Description=The age in days that a job must be to be considered for deletion.
+
+[Verbose]
+Type=boolean
+Category=Cleanup Options
+CategoryOrder=1
+CategoryIndex=2
+Label=Verbose Logging
+Default=true
+Description=Verbose variable is purely for testing/development usage and should be left False as it effects the script performance.
+
+[DryRun]
+Type=boolean
+Category=Cleanup Options
+CategoryOrder=1
+CategoryIndex=3
+Label=Dry Run Only
+Default=true
+Description=Dry Run variable allows execution of the script, but without changing the queue
