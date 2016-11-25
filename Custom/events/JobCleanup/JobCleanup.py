@@ -29,6 +29,7 @@ def GetDeadlineEventListener():
 def CleanupDeadlineEventListener(eventListener):
     eventListener.cleanup()
 
+
 #########################################################################################################
 # The event listener class.
 #########################################################################################################
@@ -50,7 +51,6 @@ class JobCleanupListener(DeadlineEventListener):
     def delete_jobs(self):
         current_time = DateTime.Now
         hours = self.delete_days * 24
-
 
         jobs = list(RepositoryUtils.GetJobs(True))
         self.log_verbose("Found {0} jobs. Scanning...".format(len(jobs)))
