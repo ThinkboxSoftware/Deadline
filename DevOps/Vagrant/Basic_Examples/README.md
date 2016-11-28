@@ -10,7 +10,7 @@ To use these examples, you will need the following:
 
 * [HashiCorp Vagrant](https://www.vagrantup.com/downloads.html)
 * [Oracle VirtualBox](https://www.virtualbox.org/)
-* [Oracle VirtualBox Extension Pack]((https://www.virtualbox.org/)
+* [Oracle VirtualBox Extension Pack](https://www.virtualbox.org/)
 * Deadline installer tar file.
 
 ## Usage ##
@@ -18,7 +18,7 @@ To use these examples, you will need the following:
 Note:  These are general instructions for the examples in this section. There may be additional notes in README.md files 
 in the subfolders for specific Deadline or OS versions.
 
-1. Place the Deadline installer tar file (e.g., ```Deadline-8.0.7.3-linux-installers.tar``` ) in the folder that 
+1. Place the Deadline installer tar file (e.g., ```Deadline-8.0.11.2-linux-installers.tar``` ) in the folder that 
 contains the file named ```Vagrantfile```.  This folder will be shared through to the VM, and this is how the 
 provisioning script will locate the installer.
 
@@ -35,3 +35,5 @@ Virtual machines created by Vagrant should always be started by navigating to th
 
 Virtual machines created by Vagrant, and properly started using the vagrant up command, can be accessed via SSH by
 navigating to the folder containing the ```Vagrantfile``` and using the ```vagrant ssh``` command.
+
+![End](../../../thinkbox_tiny.png)

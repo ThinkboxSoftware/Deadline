@@ -14,3 +14,4 @@ Typical steps:
 As noted elsewhere, the Desktop server VMs that are created in these examples are meant for testing and development; 
 they are not meant for production use. 
 
+![End](../../../../thinkbox_tiny.png)

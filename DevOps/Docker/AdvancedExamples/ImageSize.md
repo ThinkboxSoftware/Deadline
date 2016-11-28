@@ -5,9 +5,9 @@ union filesystem used by Docker containers is purely additive in nature.  Once o
 filesystem with the ```COPY``` or ```ADD``` build commands, subsequent commands to remove the file(s) will not reduce 
 the container size, even though the file is deleted from the perspective of the container's filesystem.
 
-Using the Ubuntu 7.2_Client exmample, we add the installer to the container using
+Using the ubuntu1404_client8 example, we add the installer to the container using
 
-    COPY DeadlineClient-7.*-linux-x64-installer.run /thinkboxsetup/
+    COPY DeadlineClient-8.*-linux-x64-installer.run /thinkboxsetup/
 
 a subsequent command to remove the installer after it has been run, such as
 
@@ -21,7 +21,7 @@ One approach is to use post-build tools such as [docker-slim](https://github.com
 [docker-squash](https://github.com/jwilder/docker-squash), and others.  These are useful tools worth learning if you 
 make heavy use of containers, but they can introduce challenges of their own.
 
-Here is an alternative apporach that prevents the installer from remaining with the resulting image.  The approach is
+Here is an alternative approach that prevents the installer from remaining with the resulting image.  The approach is
 to add the installer, run it, and remove it all in one build step.  The question is, how do we get the installer into
 the image without using build commands like ```COPY``` or ```ADD```?  
 
@@ -53,9 +53,4 @@ file to be pulled down from the server.  ```wget``` provides advanced options to
 those options are beyond the scope of this document.  (But 
 [here is a handy set of examples](http://www.editcorp.com/personal/lars_appel/wget/v1/wget_7.html#SEC33)).
 
-
-
-  
-
-
-
+![End](../../../thinkbox_tiny.png)

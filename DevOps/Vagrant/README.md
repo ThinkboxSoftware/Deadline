@@ -40,3 +40,4 @@ the virtual machine.
 based.  This is a good thing, since it means the base box will not need to be re-downloaded the next time you provision
 the virtual machine.
 
+![End](../../thinkbox_tiny.png)
