@@ -1,0 +1,72 @@
+[State]
+Type=Enum
+Items=Global Enabled;Opt-In;Disabled
+Category=Options
+CategoryOrder=0
+CategoryIndex=0
+Label=State
+Default=Global Enabled
+Description=How this event plug-in should respond to events. If Global, all jobs and slaves will trigger the events for this plugin. If Opt-In, jobs and slaves can choose to trigger the events for this plugin. If Disabled, no events are triggered for this plugin.
+
+[Verbose]
+Type=Boolean
+Label=Verbose
+Default=False
+Category=Logging
+CategoryOrder=1
+CategoryIndex=0
+Description=If enabled, verbose logging is enabled.
+
+[UsePool]
+Type=Boolean
+Label=Use Pool
+Default=True
+Category=Job Properties
+CategoryOrder=2
+CategoryIndex=0
+Description=Take into account the pool the job is being submitted to.
+
+[UseGroup]
+Type=Boolean
+Label=Use Group
+Default=True
+Category=Job Properties
+CategoryOrder=2
+CategoryIndex=1
+Description=Take into account the group the job is being submitted to.
+
+[UseLimits]
+Type=Boolean
+Label=Use Limits
+Default=True
+Category=Job Properties
+CategoryOrder=2
+CategoryIndex=2
+Description=Take into account ALL the 'limits' the job is being submitted against.
+
+[MinFrameCount]
+Type=integer
+Label=Min Frame Count
+Default=10
+Category=Settings
+CategoryOrder=3
+CategoryIndex=0
+Description=Min frame count of the job for this event plugin to kick into effect.
+
+[MultiplyFactor]
+Type=integer
+Label=Multiply Factor
+Default=2
+Category=Settings
+CategoryOrder=3
+CategoryIndex=1
+Description=A simpler multiplier on the pool slot count. Experimental. As most studios use 'pools' for job scheduling.
+
+[MaxChunkSize]
+Type=integer
+Label=Max Chunk Size
+Default=50
+Category=Settings
+CategoryOrder=3
+CategoryIndex=2
+Description=A max cap limit on the chunksize to limit crazy users doing crazy things.
