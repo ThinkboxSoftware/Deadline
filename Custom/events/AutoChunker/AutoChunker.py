@@ -40,7 +40,7 @@ class AutoChunker( DeadlineEventListener ):
 		
 		# Only execute for Maya jobs.
 		jobPlugin = job.JobPlugin
-		if jobPlugin != "MayaBatch" or jobPlugin != "MayaCmd":
+		if not job.JobPlugin in ["MayaBatch", "MayaCmd"]:
 			return
 
 		# Only execute if it's a job submitted by user "dave", for say, testing purposes.
