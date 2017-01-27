@@ -47,32 +47,32 @@ class AutoChunker( DeadlineEventListener ):
 		# if job.JobUserName != "dave":
 		# 	return
 
-		print "AutoChunker running as this is a Maya job"
+		print("AutoChunker running as this is a Maya job")
 
 		self.Verbose = self.GetBooleanConfigEntryWithDefault( "Verbose", False )
-		print "Verbose Logging: %s" % self.Verbose
+		print("Verbose Logging: %s" % self.Verbose)
 
 		minFrameCount = self.GetIntegerConfigEntryWithDefault( "MinFrameCount", 10 )
-		print "MinFrameCount: %s" % minFrameCount
+		print("MinFrameCount: %s" % minFrameCount)
 
 		jobFramesList = job.JobFramesList
 		frameCount = len(jobFramesList)
 
 		if self.Verbose:
-			print "Frame Count: %s" % frameCount
+			print("Frame Count: %s" % frameCount)
 		
 		if minFrameCount > frameCount:
-			print "AutoChunker exiting as job frame count is less than min frame count"
+			print("AutoChunker exiting as job frame count is less than min frame count")
 			return
 
-		print "BEFORE [ChunkSize]: %s" % job.JobFramesPerTask
+		print("BEFORE [ChunkSize]: %s" % job.JobFramesPerTask)
 		
 		limitGroups = list(job.JobLimitGroups)
 		
 		if self.Verbose:
-			print "jobPool: %s" % job.JobPool
-			print "jobGroup: %s" % job.JobGroup
-			print "jobLimits: %s" % limitGroups
+			print("jobPool: %s" % job.JobPool)
+			print("jobGroup: %s" % job.JobGroup)
+			print("jobLimits: %s" % limitGroups)
 
 		usePool = self.GetBooleanConfigEntryWithDefault( "UsePool", True )
 		useGroup = self.GetBooleanConfigEntryWithDefault( "UseGroup", True )
@@ -92,12 +92,12 @@ class AutoChunker( DeadlineEventListener ):
 			slaveLimits = len(self.GetLimitBasedSlaves( limitGroups ))
 
 		if self.Verbose:
-			print "slavePool: %s" % slavePool
-			print "slaveGroup: %s" % slaveGroup
-			print "slaveLimits: %s" % slaveLimits
+			print("slavePool: %s" % slavePool)
+			print("slaveGroup: %s" % slaveGroup)
+			print("slaveLimits: %s" % slaveLimits)
 
 		multiplyFactor = self.GetIntegerConfigEntryWithDefault( "MultiplyFactor", 2 )
-		print "MultiplyFactor: %s" % multiplyFactor
+		print("MultiplyFactor: %s" % multiplyFactor)
 
 		# Calculate number of potential slots
 		if slaveLimits > 0:
@@ -108,21 +108,21 @@ class AutoChunker( DeadlineEventListener ):
 		slots = min(i for i in l if i is not None)
 
 		if slots == 0:
-			print "There are no Slaves which satisfy the job requirements. Submitting anyways with default slots of 1"
+			print("There are no Slaves which satisfy the job requirements. Submitting anyways with default slots of 1")
 			slots = 1
 
 		if self.Verbose:
-			print "slots: %s" % slots
+			print("slots: %s" % slots)
 
 		maxChunkSize = self.GetIntegerConfigEntryWithDefault( "MaxChunkSize", 50 )
-		print "MaxChunkSize: %s" % maxChunkSize
+		print("MaxChunkSize: %s" % maxChunkSize)
 
 		chunkSize = min(slots, maxChunkSize)
 
 		RepositoryUtils.SetJobFrameRange( job, job.JobFrames, chunkSize )
 		# RepositoryUtils.SaveJob( job )
 
-		print "AFTER [ChunkSize]: %s" % job.JobFramesPerTask
+		print("AFTER [ChunkSize]: %s" % job.JobFramesPerTask)
 
 	def GetLimitBasedSlaves( self, limitGroups ):
 		'''
@@ -147,7 +147,7 @@ class AutoChunker( DeadlineEventListener ):
 		slaves = list(set(whitelistedSlaves)-set(blacklistedSlaves))
 
 		if self.Verbose:
-			print "GetLimitBasedSlaves: %s" % slaves
+			print("GetLimitBasedSlaves: %s" % slaves)
 		
 		return slaves
 
@@ -163,7 +163,7 @@ class AutoChunker( DeadlineEventListener ):
 				slaves.append(slave.SlaveName)
 
 		if self.Verbose:
-			print "GetSlaveNamesInPool: %s" % slaves
+			print("GetSlaveNamesInPool: %s" % slaves)
 
 		return slaves
 
@@ -179,6 +179,6 @@ class AutoChunker( DeadlineEventListener ):
 				slaves.append(slave.SlaveName)
 
 		if self.Verbose:
-			print "GetSlaveNamesInGroup: %s" % slaves
+			print("GetSlaveNamesInGroup: %s" % slaves)
 
 		return slaves
