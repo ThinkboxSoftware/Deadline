@@ -88,7 +88,7 @@ class EventScriptListener(Deadline.Events.DeadlineEventListener):
             # Execute script
             execfile(script)
         except:
-            print traceback.format_exc()
+            print(traceback.format_exc())
 
     def OnJobSubmitted(self, job):
 
