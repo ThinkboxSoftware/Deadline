@@ -77,7 +77,6 @@ class VRayPrePassEventListener( DeadlineEventListener ):
         if len(taskIdsToRequeue) > 0:
             
             taskIdsToRequeue = list(set(taskIdsToRequeue))
-            tasks = RepositoryUtils.GetJobTasks( job, True )
             
             for task in tasks.Tasks:
                 for i in taskIdsToRequeue:
