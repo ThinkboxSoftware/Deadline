@@ -12,4 +12,4 @@ CategoryOrder=0
 Index=1
 Label=Priority Mapping
 Default=admins<100;users<10
-Description=Max priority mapping for user groups. Eg: admins<100"
+Description=Max priority mapping for user groups. Eg: admins<100
