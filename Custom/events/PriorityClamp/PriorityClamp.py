@@ -37,19 +37,28 @@ class JobEventListener (DeadlineEventListener):
     # This is called when a job is submitted.
     def OnJobSubmitted(self, job):
         user = job.JobUserName
-        priviledged = False
-        
-        priority = self.GetIntegerConfigEntry("Priority")
-        usergroup = self.GetConfigEntry("UserGroups")
+        priority = 0
+
+        priority_map = self.GetConfigEntry('PriorityMap')
 
         groups = RepositoryUtils.GetUserGroupsForUser(user)
+        priorities = priority_map.split(';') # Breaks up into groups
 
-        for group in groups:
-            if group == usergroup:
-                priviledged = True
+        for i in priorities:
+            # Skip over empty lines
+            if len(i) < 1:
+                continue
 
-        if not priviledged and job.JobPriority > priority:
+            (group, group_priority) = tuple(i.split('<'))
+
+            # Clean up any accidental whitespace
+            group = group.strip()
+            group_priority = int(group_priority.strip())
+
+            if group in groups:
+                priority = max(priority, group_priority)
+                print("Allowed job priority upgraded because you're a member of {0}. Currently {1}.".format(group, priority))
+
+        if priority > 0 and job.JobPriority > priority:
             job.JobPriority = priority
-            print("Job priority downgraded to {0}. See someone in the {1} group for assistance".format(priority, group))
-
-        RepositoryUtils.SaveJob(job)
+            RepositoryUtils.SaveJob(job)

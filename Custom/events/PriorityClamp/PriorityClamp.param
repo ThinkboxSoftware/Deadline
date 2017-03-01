@@ -5,21 +5,11 @@ Label=State
 Default=Disabled
 Description=How this event plug-in should respond to events. If Global, all jobs and slaves will trigger the events for this plugin. If Opt-In, jobs and slaves can choose to trigger the events for this plugin. If Disabled, no events are triggered for this plugin.
 
-[Priority]
-Type=Integer
+[PriorityMap]
+Type=multilinestring
 Category=Options
 CategoryOrder=0
 Index=1
-Label=Priority
-Default=50
-Description=Max Priority.
-Minimum=0
-
-[UserGroups]
-Type=String
-Category=Options
-CategoryOrder=0
-Index=2
-Default=Casual
-Label=Groups
-Description=Users Group.
+Label=Priority Mapping
+Default=admins<100;users<10
+Description=Max priority mapping for user groups. Eg: admins<100
