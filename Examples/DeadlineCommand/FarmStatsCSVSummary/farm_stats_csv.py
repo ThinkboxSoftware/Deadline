@@ -6,6 +6,7 @@ from pprint import pprint
 import csv
 import os
 
+
 def build_dict(obj):
     '''
         Because Python.net objects have no __dict__, this will build
@@ -30,7 +31,7 @@ def build_dict(obj):
         filter = False
         for filter_string in filter_prexes:
             if a.startswith(filter_string):
-                filter = True;
+                filter = True
 
         if filter is True:
             continue
@@ -54,12 +55,14 @@ def build_dict(obj):
 
     return items
 
+
 def write_csv(dict_list, filename):
     with open(filename, 'wb') as f:
         w = csv.DictWriter(f, dict_list[0].keys())
         w.writeheader()
         for item in dict_list:
             w.writerow(item)
+
 
 def __main__():
     job_stats = []
@@ -69,11 +72,11 @@ def __main__():
         stats = JobUtils.CalculateJobStatistics(job, tasks)
 
         job_stats.append(build_dict(stats))
-        
+
         print('.')
 
     pprint(job_stats)
-        
+
     path = os.path.join(os.path.dirname(__file__), "jobs.csv")
     write_csv(job_stats, path)
     print("Saved stats to {}".format(path))
