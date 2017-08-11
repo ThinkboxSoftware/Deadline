@@ -1,0 +1,4 @@
+Plugin=CommandLine
+Name=Hello World
+Frames=1-100
+IncludeEnvironment=True

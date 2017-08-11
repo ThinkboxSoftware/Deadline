@@ -1,0 +1,5 @@
+Shell=default
+ShellExecute=False
+StartupDirectory=
+Executable=c:\windows\system32\cmd.exe
+Arguments=/c echo "Hi there <STARTFRAME>!"

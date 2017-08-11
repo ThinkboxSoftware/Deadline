@@ -1,0 +1,1 @@
+"%DEADLINE_PATH%\deadlinecommand" %CD%\job_info.txt %CD%\plugin_info.txt
