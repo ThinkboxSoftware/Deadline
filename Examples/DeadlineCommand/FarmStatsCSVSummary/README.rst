@@ -8,3 +8,8 @@ such as formatting TimeSpans and .net Strings.
 
 It's also possible to filter out any data that isn't relevant to your use case
 by adjusting the 'filter_prexes' list.
+
+Run this command like so::
+
+    /path/to/deadlinecommand ExecuteScript /path/to/farm_stats_csv.py
+
