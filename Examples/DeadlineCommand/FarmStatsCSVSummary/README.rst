@@ -1,6 +1,6 @@
 farm_stats_csv.py
 ===================
-This script will dump the state from all the jobs in the queue and dump that
+This script will read the state from all the jobs in the queue and dump that
 data into a file named jobs.csv next to this script.
 
 It shows a few ways to interrogate Python.net objects to get the data you want
