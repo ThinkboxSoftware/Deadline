@@ -1,0 +1,27 @@
+[State]
+Type=Enum
+Items=Global Enabled;Disabled
+Category=Options
+CategoryOrder=0
+Index=0
+Label=State
+Default=Disabled
+Description=How this event plug-in should respond to events. If Global, all jobs and Slaves will trigger the events for this plugin. If Disabled, no events are triggered for this plugin.
+
+[Mapping]
+Type=MultiLineString
+Category=Configuration
+CategoryOrder=2
+Index=1
+Label=Slaves Mapping
+Default={}
+Description=<html><head/><body><p>A mapping between your Groups / Pools and Slaves. One config per slave name regex formatted as so: { "regex_slave_pattern":{ "Groups":["group_name","2nd_group_name"],"Pools":["pool_name", "2nd_pool_name"]}, "2nd_regex_slave_pattern":{ "Groups":["group_name","2nd_group_name"],"Pools":["pool_name", "2nd_pool_name"]} }.</p></body></html>
+
+[PerformAssignmentOnHouseCleaning]
+Type=boolean
+Category=Configuration
+CategoryOrder=2
+Index=2
+Label=Perform Assignment on House Cleaning
+Default=False
+Description=<html><head/><body><p>If enabled, assignment will be performed on house cleaning. Default: False.</p></body></html>
