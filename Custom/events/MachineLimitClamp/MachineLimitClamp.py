@@ -55,5 +55,3 @@ class JobEventListener (DeadlineEventListener):
                 "Job machine limit downgraded to {0}. See someone in the {1} group for assistance".format(
                     limit,
                     group))
-
-        RepositoryUtils.SaveJob(job)
