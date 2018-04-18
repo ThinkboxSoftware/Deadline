@@ -50,10 +50,8 @@ class JobEventListener (DeadlineEventListener):
                 priviledged = True
 
         if not priviledged and (job.MachineLimit > limit or job.MachineLimit == 0):
-            job.MachineLimit = limit
+            RepositoryUtils.SetMachineLimitMaximum(job, limit)
             print(
                 "Job machine limit downgraded to {0}. See someone in the {1} group for assistance".format(
                     limit,
                     group))
-
-        RepositoryUtils.SaveJob(job)
