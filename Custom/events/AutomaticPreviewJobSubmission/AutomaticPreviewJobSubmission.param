@@ -1,0 +1,6 @@
+[State]
+Type=Enum
+Items=Global Enabled;Opt-In;Disabled
+Label=State
+Default=Disabled
+Description=How this event plug-in should respond to events. If Global, all jobs and Slaves will trigger the events for this plugin. If Opt-In, jobs and Slaves can choose to trigger the events for this plugin. If Disabled, no events are triggered for this plugin.
