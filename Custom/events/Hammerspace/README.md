@@ -1,5 +1,7 @@
 ## Hammerspace Event Plugin for Deadline
 
+**Note**: This plugin required Deadline 10.3 or later.
+
 ### Overview
 
 [Hammerspace](https://hammerspace.com/) is a global file system solution that allows multiple storage types in different locations to share a single global namespace. In relation to Deadline and a render farm, this means we can take advantage of the global AWS network to render anywhere in any region, and still have access to the results from all other regions. 
