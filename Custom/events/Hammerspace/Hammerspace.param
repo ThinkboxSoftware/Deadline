@@ -1,0 +1,72 @@
+[State]
+Type=Enum
+Items=Global Enabled;Disabled
+Category=Options
+CategoryOrder=0
+Index=0
+Label=State
+Description=<html><head/><body><p>How this event plug-in should respond to events. If Global, all jobs and Workers will trigger the events for this plugin. If Disabled, no events are triggered for this plugin. Default: Disabled.</p></body></html>
+Default=Disabled
+
+[Pool]
+Type=string
+Category=Job Options
+CategoryOrder=1
+Index=0
+Label=Pool
+Description=<html><head/><body><p>The Pool to which the Deadline Command job will be submitted. If blank, the original job's Pool will be re-used. Default: "".</p></body></html>
+Default=
+
+[Group]
+Type=string
+Category=Job Options
+CategoryOrder=1
+Index=1
+Label=Group
+Description=<html><head/><body><p>The Group to which the Deadline Command job will be submitted. If blank, the original job's Group will be re-used. Default: "".</p></body></html>
+Default=
+
+[Limit]
+Type=string
+Category=Job Options
+CategoryOrder=1
+Index=2
+Label=Limit(s)
+Description=<html><head/><body><p>The Limit to which the Deadline Command job will be submitted. If blank, the original job's Limits will be used. Default: "".</p></body></html>
+Default=
+
+[PriorityOffset]
+Type=integer
+Minimum=-100
+Maximum=100
+Increment=1
+Category=Job Options
+CategoryOrder=1
+Index=3
+Label=Priority Offset
+Description=<html><head/><body><p>This offset will be added to the original job's priority, in order to determine the Deadline Command job's priority. Default: 0.</p></body></html>
+Default=0
+
+[IterationDelay]
+Type=integer
+Minimum=0
+Maximum=100
+Increment=1
+Category=Hammerspace Options
+CategoryOrder=2
+Index=0
+Label=Iteration Delay (seconds)
+Description=<html><head/><body><p>Delay (in seconds) between each iteration to poll Hammerspace. Default: 1.</p></body></html>
+Default=1
+
+[IterationCount]
+Type=integer
+Minimum=0
+Maximum=500
+Increment=1
+Category=Hammerspace Options
+CategoryOrder=2
+Index=1
+Label=Iteration Count
+Description=<html><head/><body><p>Maximum number of iterations to poll Hammerspace for. Default: 20.</p></body></html>
+Default=20
