@@ -1,10 +1,10 @@
 ###############################################################
 # Imports
 ###############################################################
-from System import *
+import sys
 
-from Deadline.Events import *
-from Deadline.Scripting import *
+from Deadline.Events import DeadlineEventListener
+from Deadline.Scripting import RepositoryUtils
 
 import os
 import string
@@ -14,7 +14,7 @@ import string
 
 
 def GetDeadlineEventListener():
-    return CustomEnvironmentCopyListener()
+    return CustomEnvironmentCopyListener() 
 
 
 def CleanupDeadlineEventListener(eventListener):
@@ -28,6 +28,8 @@ def CleanupDeadlineEventListener(eventListener):
 class CustomEnvironmentCopyListener (DeadlineEventListener):
 
     def __init__(self):
+        if sys.version_info.major == 3:
+            super().__init__()        
         self.OnJobSubmittedCallback += self.OnJobSubmitted
 
     def Cleanup(self):
@@ -38,7 +40,7 @@ class CustomEnvironmentCopyListener (DeadlineEventListener):
         unwantedkeys = self.GetConfigEntryWithDefault("UnwantedEnvKeys", "")
 
         # Split out on commas, gettting rid of excess whitespace and make uppercase
-        unwantedkeys = [string.upper(x.strip()) for x in unwantedkeys.split(',')]
+        unwantedkeys = [x.strip().upper() for x in unwantedkeys.split(',')]
 
         wantedkeys = []
 
@@ -49,7 +51,7 @@ class CustomEnvironmentCopyListener (DeadlineEventListener):
 
         # Go through the current system environment variables not copying the unwanted keys
         for key in os.environ:
-            if string.upper(key) not in unwantedkeys:
+            if key.upper() not in unwantedkeys:
                 wantedkeys.append(key)
 
         # Set chosen variables to job
