@@ -1,5 +1,7 @@
-from Deadline.Events import *
-from Deadline.Scripting import *
+from Deadline.Events import DeadlineEventListener
+from Deadline.Scripting import RepositoryUtils
+
+import sys
 
 ##################################################################################
 ## This is the function that Deadline calls to get an instance of the
@@ -25,6 +27,8 @@ def CleanupDeadlineEventListener( deadlinePlugin ):
 class AutomaticPreviewJobSubmissionListener (DeadlineEventListener):
 
     def __init__( self ):
+        if sys.version_info.major == 3:
+            super().__init__()
         # Set up the event callbacks here
         self.OnJobSubmittedCallback += self.OnJobSubmitted
 
@@ -36,7 +40,7 @@ class AutomaticPreviewJobSubmissionListener (DeadlineEventListener):
 
         # Resume first, middle, and last tasks
         tasks = list(RepositoryUtils.GetJobTasks( job, True ).TaskCollectionAllTasks)
-        middleIndex = (len(tasks) - 1)/2
+        middleIndex = int((len(tasks) - 1)/2)
         RepositoryUtils.ResumeTasks(job, [tasks[0], tasks[middleIndex], tasks[-1]])
 
         self.LogInfo("On Job Submitted Event Plugin: AutomaticPreviewJobSubmission finished")

@@ -17,7 +17,7 @@ everyone<50
 
 For those unfamiliar with user groups, check out the 7.0 documentation on the
 subject:
-http://docs.thinkboxsoftware.com/products/deadline/7.0/1_User%20Manual/manual/user-management.html#managing-user-groups
+https://docs.thinkboxsoftware.com/products/deadline/10.3/1_User%20Manual/manual/user-management.html#managing-user-groups
 
 If there are problems or if you'd like us to change something e-mail
 the support team at support@thinkboxsoftware.com
