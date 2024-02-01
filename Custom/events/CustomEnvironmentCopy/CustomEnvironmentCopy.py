@@ -14,7 +14,7 @@ import string
 
 
 def GetDeadlineEventListener():
-    return CustomEnvironmentCopyListener() 
+    return CustomEnvironmentCopyListener()
 
 
 def CleanupDeadlineEventListener(eventListener):

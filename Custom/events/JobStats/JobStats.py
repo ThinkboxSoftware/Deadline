@@ -1,7 +1,6 @@
 ###############################################################
 # Imports
 ###############################################################
-#from System import TimeSpan
 import sys
 
 from Deadline.Events import *

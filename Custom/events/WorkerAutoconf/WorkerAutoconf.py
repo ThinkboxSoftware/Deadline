@@ -2,9 +2,6 @@
     Stolen from Gavin's great example on this forum thread:
     https://forums.thinkboxsoftware.com/viewtopic.php?f=11&t=13396#p59978
 '''
-
-#from System.Diagnostics import *
-#from System.IO import *
 from System import TimeSpan
 
 from Deadline.Events import DeadlineEventListener
