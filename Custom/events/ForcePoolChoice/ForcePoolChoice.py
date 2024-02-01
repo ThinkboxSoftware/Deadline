@@ -1,8 +1,10 @@
 ###############################################################
 # Imports
 ###############################################################
-from Deadline.Events import *
-from Deadline.Scripting import *
+import sys
+
+from Deadline.Events import DeadlineEventListener
+from Deadline.Scripting import RepositoryUtils
 
 
 def GetDeadlineEventListener():
@@ -20,6 +22,8 @@ def CleanupDeadlineEventListener(eventListener):
 ###############################################################
 class PluginListener(DeadlineEventListener):
     def __init__(self):
+        if sys.version_info.major == 3:
+            super().__init__()      
         self.OnJobSubmittedCallback += self.OnJobSubmitted
 
     def Cleanup(self):

@@ -1,10 +1,10 @@
 ###############################################################
 # Imports
 ###############################################################
-from System import TimeSpan
+import sys
 
 from Deadline.Events import *
-from Deadline.Scripting import *
+from Deadline.Scripting import RepositoryUtils, JobUtils
 
 
 ###############################################################
@@ -24,6 +24,8 @@ def CleanupDeadlineEventListener(eventListener):
 class StatsListener (DeadlineEventListener):
 
     def __init__(self):
+        if sys.version_info.major == 3:
+            super().__init__()     
         self.OnJobFinishedCallback += self.OnJobFinished
     
     def Cleanup(self):
