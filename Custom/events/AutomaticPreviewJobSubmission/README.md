@@ -22,7 +22,7 @@ So if you want to adapt this for your own usecase, you should supply some more s
 
 ## Usage Instructions
 
-This [page of our documentation](https://docs.thinkboxsoftware.com/products/deadline/10.0/1_User%20Manual/manual/event-plugins.html#creating-an-event-plug-in) provides a more in-depth look at how to create a custom Event Plugin.
+This [page of our documentation](https://docs.thinkboxsoftware.com/products/deadline/10.3/1_User%20Manual/manual/event-plugins.html#creating-an-event-plug-in) provides a more in-depth look at how to create a custom Event Plugin.
 
 But to "plug-and-play" with this example plugin, all you need to do is:
 * Copy the `AutomaticPreviewJobSubmission` folder from this repository to the `custom/events` folder under your DeadlineRepository path.
